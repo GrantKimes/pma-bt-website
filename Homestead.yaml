@@ -1,0 +1,38 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 1
+hostname: pma-bt-website
+name: pma-bt-website
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: "/Users/grantkimes/Programming/PMASiteLaravel/PMA_BT_Website"
+      to: "/home/vagrant/pma-bt-website"
+
+sites:
+    - map: pmalocal
+      to: "/home/vagrant/pma-bt-website/public"
+
+databases:
+    - homestead
+
+mariadb: true
+
+# blackfire:
+#     - id: foo
+#       token: bar
+#       client-id: foo
+#       client-token: bar
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
