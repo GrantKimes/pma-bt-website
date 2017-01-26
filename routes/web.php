@@ -11,6 +11,30 @@
 |
 */
 
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/sv', function () {
+    return view('sv');
+})->name('sv');
+
+Route::get('/botb', function () {
+    return view('botb');
+})->name('botb');
+
+
+
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
+
+
+
+// If route functions become large, use Controllers (app/Http/Controllers)
+
+/* For anything requiring login:
+Route::group(['middleware' => 'auth'], function() { 
+	Route::get(...)
+}); */

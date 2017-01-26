@@ -1,0 +1,185 @@
+/* GLOBAL COLORS */
+/* =================================== */
+/* GLOBAL STYLING */
+/* =================================== */
+body {
+  padding-top: 70px; }
+
+/* Offset for fixed navbar */
+i {
+  /* temporary */
+  color: #DA1934; }
+
+hr {
+  border-color: #E7B01F;
+  border-width: 1px; }
+
+blockquote p {
+  font-family: "Cormorant Garamond", serif; }
+
+.center-text {
+  text-align: center; }
+
+.title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #C5C3C7; }
+  .title.red {
+    color: #DA1934; }
+  .title.black {
+    color: black; }
+  .title.gold {
+    color: #C39519; }
+
+h1.title {
+  text-shadow: 2px 2px 2px #C5C3C7;
+  margin-top: 0px; }
+
+#page-footer {
+  /*
+    p, a {
+      margin-bottom: 0px;
+      color: $red-primary;
+    }
+    */ }
+
+/* GLOBAL IMAGE SIZES */
+/* =================================== */
+#coat-of-arms {
+  max-height: 150px; }
+
+#among-men-harmony {
+  max-height: 40px; }
+
+#lyre-logo-old {
+  max-height: 200px; }
+
+#navbar-logo {
+  height: 30px; }
+
+img.featurette-image {
+  height: 350px; }
+
+img.media-object {
+  height: 50px; }
+
+/* NAVBAR */
+/* =================================== */
+.navbar-default {
+  background-color: #DA1934;
+  border-color: #C41B34; }
+  .navbar-default .navbar-brand {
+    color: white; }
+    .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+      color: #C5C3C7; }
+  .navbar-default .navbar-text {
+    color: white; }
+  .navbar-default .navbar-nav > li > a {
+    color: white; }
+    .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+      color: #C5C3C7; }
+  .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #C5C3C7;
+    background-color: #C41B34; }
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #C5C3C7;
+    background-color: #C41B34; }
+  .navbar-default .navbar-toggle {
+    border-color: #C41B34; }
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+      background-color: #C41B34; }
+    .navbar-default .navbar-toggle .icon-bar {
+      background-color: white; }
+  .navbar-default .navbar-collapse,
+  .navbar-default .navbar-form {
+    border-color: white; }
+  .navbar-default .navbar-link {
+    color: white; }
+    .navbar-default .navbar-link:hover {
+      color: #C5C3C7; }
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: white; }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+      color: #C5C3C7; }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #C5C3C7;
+    background-color: #C41B34; } }
+/* Overrides for "Optional Bootstrap Theme" navbar coloring */
+.navbar-default {
+  background-image: -webkit-linear-gradient(top, #DA1934 0, #C41B34 100%);
+  background-image: -o-linear-gradient(top, #DA1934 0, #C41B34 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#DA1934), to(#C41B34));
+  background-image: linear-gradient(to bottom, #DA1934 0, #C41B34 100%); }
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .open > a {
+  background-image: -webkit-linear-gradient(top, #C41B34 0, #971528 100%);
+  background-image: -o-linear-gradient(top, #C41B34 0, #971528 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#C41B34), to(#971528));
+  background-image: linear-gradient(to bottom, #C41B34 0, #971528 100%);
+  color: #E7B01F; }
+  .navbar-default .navbar-nav > .active > a:hover,
+  .navbar-default .navbar-nav > .open > a:hover {
+    color: #C39519; }
+
+/* CAROUSEL */
+/* ============================================ */
+.carousel .item,
+.carousel .item img {
+  height: 300px; }
+  @media screen and (min-width: 768px) {
+    .carousel .item,
+    .carousel .item img {
+      height: 400px; } }
+  @media screen and (min-width: 992px) {
+    .carousel .item,
+    .carousel .item img {
+      height: 600px; } }
+
+.carousel {
+  @extends .carousel .item;
+  overflow: hidden;
+  width: auto; }
+
+.carousel-caption p, .carousel-caption h1 {
+  opacity: 0.9; }
+
+/*
+.carousel {
+  height: 300px;
+  overflow: hidden;
+
+  .item img {
+    width: 100%;
+    height: auto;
+  }
+}*/
+/*
+.carousel {
+  max-height: 500px;
+}
+
+.carousel .item {
+  max-height: 500px;
+}
+
+.carousel,
+.carousel .item,
+.carousel-inner > .item > img {
+  width: auto;
+  max-height: 500px;
+}
+*/
+/*
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
+*/
+
+/*# sourceMappingURL=style.css.map */
