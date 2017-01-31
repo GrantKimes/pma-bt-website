@@ -2,11 +2,7 @@
 /* =================================== */
 /* GLOBAL STYLING */
 /* =================================== */
-body {
-  padding-top: 70px; }
-
-/* Offset for fixed navbar */
-i {
+i.notice {
   /* temporary */
   color: #DA1934; }
 
@@ -36,16 +32,14 @@ h1.title {
   margin-top: 0px; }
 
 #page-footer {
-  /*
-    p, a {
-      margin-bottom: 0px;
-      color: $red-primary;
-    }
-    */ }
+  padding-bottom: 2em; }
 
 /* GLOBAL IMAGE SIZES */
 /* =================================== */
 #coat-of-arms {
+  max-height: 150px; }
+
+#u-logo {
   max-height: 150px; }
 
 #among-men-harmony {
@@ -55,16 +49,22 @@ h1.title {
   max-height: 200px; }
 
 #navbar-logo {
-  height: 30px; }
+  max-height: 30px; }
+
+#botb-logo {
+  max-height: 200px; }
 
 img.featurette-image {
   height: 350px; }
 
 img.media-object {
-  height: 50px; }
+  height: 60px; }
 
 /* NAVBAR */
 /* =================================== */
+.navbar {
+  border-radius: 0px; }
+
 .navbar-default {
   background-color: #DA1934;
   border-color: #C41B34; }
@@ -126,18 +126,20 @@ img.media-object {
 
 /* CAROUSEL */
 /* ============================================ */
+/*
 .carousel .item,
 .carousel .item img {
-  height: 300px; }
-  @media screen and (min-width: 768px) {
-    .carousel .item,
-    .carousel .item img {
-      height: 400px; } }
-  @media screen and (min-width: 992px) {
-    .carousel .item,
-    .carousel .item img {
-      height: 600px; } }
+  height: 300px; // xs (phone) by default
 
+  @media screen and (min-width: 768px) { 
+    height: 400px; // sm (tablet) 
+  }
+
+  @media screen and (min-width: 992px) { 
+    height: 650px; // md (desktop)
+  }
+}
+*/
 .carousel {
   @extends .carousel .item;
   overflow: hidden;

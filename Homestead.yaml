@@ -17,7 +17,7 @@ folders:
 
 sites:
     - map: pmalocal
-      to: "/home/vagrant/pma-bt-website/public"
+      to: "/home/vagrant/pma-bt-website/public_html"
 
 databases:
     - homestead

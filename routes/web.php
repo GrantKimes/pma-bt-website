@@ -11,10 +11,16 @@
 |
 */
 
+use App\SV_Order;
+
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+
+Route::get('/concerts', function () {
+    return view('concerts');
+})->name('concerts');
 
 Route::get('/sv', function () {
     return view('sv');
@@ -23,6 +29,16 @@ Route::get('/sv', function () {
 Route::get('/botb', function () {
     return view('botb');
 })->name('botb');
+
+
+// Controllers are app/Http/Controllers
+Route::get('/sv/order', 'SVController@create')->name('create_order');
+Route::get('/sv/view', 'SVController@viewOrders')->name('view_orders');
+
+
+// Post method for form submission
+Route::post('/sv', 'SVController@store')->name('store_order');
+
 
 
 

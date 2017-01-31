@@ -21,10 +21,10 @@ $um-orange: #F37320; // 244 115 33
 /* GLOBAL STYLING */
 /* =================================== */
 
-body { padding-top: 70px; } /* Offset for fixed navbar */
+//body { padding-top: 70px; } /* Offset for fixed navbar */
 
 
-i { /* temporary */
+i.notice { /* temporary */
   color: $red-primary;
 }
 
@@ -64,13 +64,7 @@ h1.title {
 
 
 #page-footer {
-  //padding-bottom: 2em;
-/*
-  p, a {
-    margin-bottom: 0px;
-    color: $red-primary;
-  }
-  */
+  padding-bottom: 2em;
 }
 
 
@@ -79,22 +73,35 @@ h1.title {
 /* =================================== */
 
 #coat-of-arms { max-height: 150px; }
+#u-logo { max-height: 150px; }
 #among-men-harmony { max-height: 40px; }
 #lyre-logo-old { max-height: 200px; }
-#navbar-logo { height: 30px; }
+#navbar-logo { max-height: 30px; }
+#botb-logo { max-height: 200px; }
 
 img.featurette-image {
   height: 350px;
 }
 
 img.media-object {
-  height: 50px;
+  height: 60px;
 }
+
+
+
+
+
+
+
 
 
 
 /* NAVBAR */
 /* =================================== */
+
+.navbar {
+  border-radius: 0px;
+}
 
 $bgDefault      : $red-primary;
 $bgHighlight    : $red-dark;
@@ -199,6 +206,7 @@ $active-bottom-color:  darken($red-dark, 10%);
 /* CAROUSEL */
 /* ============================================ */
 
+/*
 .carousel .item,
 .carousel .item img {
   height: 300px; // xs (phone) by default
@@ -208,9 +216,10 @@ $active-bottom-color:  darken($red-dark, 10%);
   }
 
   @media screen and (min-width: 992px) { 
-    height: 600px; // md (desktop)
+    height: 650px; // md (desktop)
   }
 }
+*/
 
 .carousel { 
   @extends .carousel .item;
