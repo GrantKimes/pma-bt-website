@@ -30,6 +30,9 @@ blockquote p {
 h1.title {
   text-shadow: 2px 2px 2px #C5C3C7;
   margin-top: 0px; }
+  @media screen and (max-width: 768px) {
+    h1.title {
+      font-size: 2em; } }
 
 #page-footer {
   padding-bottom: 2em; }
@@ -40,7 +43,8 @@ h1.title {
   max-height: 150px; }
 
 #u-logo {
-  max-height: 150px; }
+  max-height: 150px;
+  padding-top: 10px; }
 
 #among-men-harmony {
   max-height: 40px; }
@@ -54,16 +58,22 @@ h1.title {
 #botb-logo {
   max-height: 200px; }
 
+#snapchat-icon {
+  height: 40px; }
+
 img.featurette-image {
   height: 350px; }
 
 img.media-object {
-  height: 60px; }
+  height: 100px; }
 
 /* NAVBAR */
 /* =================================== */
 .navbar {
   border-radius: 0px; }
+
+.navbar-brand img {
+  max-height: 30px; }
 
 .navbar-default {
   background-color: #DA1934;

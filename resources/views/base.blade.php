@@ -54,8 +54,14 @@
 	        <span class="icon-bar"></span> 
 	      </button>
 
-	      <a class="navbar-brand" href="{{ route('home') }}">
+	      <a class="navbar-brand" href="{{ route('home') }}" title="Beta Tau Home">
 	        <img src="/images/logo.png" id="navbar-logo">
+	      </a>
+	      <a class="navbar-brand" href="https://www.facebook.com/betatau1937/" target="_blank" title="Facebook">
+	        <img src="/images/icons/Facebook-black.svg">
+	      </a>
+	      <a class="navbar-brand" href="https://www.instagram.com/pma_umiami/" target="_blank" title="Instagram">
+	        <img src="/images/icons/Instagram-black.svg">
 	      </a>
 	    </div>
 
@@ -77,17 +83,17 @@
 	<!-- Top section after navbar -->
 	<div id="page-header" class="container"> 
 		<div class="row">
-			<div class="col-md-4">
-				<img src="/images/Coat-of-Arms.png" id="coat-of-arms" class="img-responsive center-block">
-			</div>
-
-			<div class="col-md-4 center-text">
+			<div class="col-md-4 col-md-push-4 col-sm-6 col-sm-push-3 col-xs-12 center-text">
 				<h1 class="red title">Phi Mu Alpha Sinfonia</h1>
 				<h1 class="black title">Beta Tau Chapter</h1>
 				<h1 class="gold title">University of Miami</h1>
 			</div>
 
-			<div class="col-md-4 center-text">
+			<div class="col-md-4 col-md-pull-4 col-sm-3 col-sm-pull-6 col-xs-4 col-xs-offset-2 col-sm-offset-0">
+				<img src="/images/Coat-of-Arms.png" id="coat-of-arms" class="img-responsive center-block">
+			</div>
+
+			<div class="col-md-4 col-sm-3 col-xs-4 col-xs-offset-0 col-sm-offset-0 center-text">
 				<img src="/images/U logo.gif" id="u-logo" class="img-responsive center-block">
 				<!--<h3 class="title">Est. 1937</h3>
 				<p><i>(Website currently under development)</i></p>-->
@@ -112,13 +118,10 @@
 	<hr>
 	<div id="page-footer" class="container">
 		<div class="row">
-			<div class="col-md-3 center-text">
-				<p><a href="https://www.facebook.com/betatau1937/" target="_blank">Facebook Page</a></p>
-			</div>
 		
 			<div class="col-md-6 center-text">
-				<p><a href="mailto:brotherhood@betataupma.org">Brotherhood@BetaTauPMA.org</a></p>
-				<!--<p><a href="/legacy/index.php">Legacy Site</a></p>-->
+				<p class="text-muted"><a href="mailto:brotherhood@betataupma.org">Brotherhood@BetaTauPMA.org</a></p>
+				<p><a href="/legacy/index.php">Legacy Site</a></p>
 			</div>
 
 			<!--
@@ -129,7 +132,7 @@
 			</div>-->
 
 
-			<div class="col-md-3 center-block">
+			<div class="col-md-6 center-block">
 				<img src="/images/Banner-Among-Men-Harmony.jpg" id="among-men-harmony" class="img-responsive center-block">
 			</div>
 		</div>

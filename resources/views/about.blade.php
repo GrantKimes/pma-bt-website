@@ -26,55 +26,72 @@
 	
 	<h1 class="title">Beta Tau Chapter</h1>
 	<p>
-		Founded on March 5, 1937, the Beta Tau chapter is one of the oldest collegiate chapters of Phi Mu Alpha that is still active. As the first men’s fraternal organization at the University of Miami, it helped establish many of the on campus traditions, including the O-Cheer competition, and dedicated the Alma Mater Plaque in the UC breezeway.
+		Founded on March 5, 1937, the Beta Tau chapter is one of the oldest collegiate chapters of Phi Mu Alpha that is still active. As the first men’s fraternal organization at the University of Miami, it helped establish some of the on campus traditions, including the O-Cheer competition, and dedicated the Alma Mater Plaque in the UC breezeway.
 	</p>
 	<p>
-		While many members originate from the the music school, the chapter has brothers from many different majors at the University including Engineering, Marine Science, Biology, Chemistry, International Business, and filmmaking. 
-		<i class="notice">Let me know if you want any major added or changed</i>
+		We are a group of students who are united by our passion for music, whether it be composing, performing, or listening to music. The musical styles within the chapter include classical, electronic, jazz, pop, and more. While many members are students in the Frost School of Music, the chapter has brothers from different majors at the University including Engineering, Marine Science, International Business, and Microbiology & Immunology. 
 	</p>
 	<p>
 		To get in contact with us, send an email to <a href="mailto:brotherhood@betataupma.org">Brotherhood@BetaTauPMA.org</a>.
 	</p>
 
-	<h3 class="title">Famous Honorary Members</h3> 
-	<p>
-		The Beta Tau chapter has initiated many famous musicians into the rich history of the chapter:
-		<ul>
-			<li>Luciano Pavoratti <span class="text-muted">- Opera singer</span></li>
-			<li>Ken Moses <span class="text-muted">- Former dean of the Frost School of Music</span></li>
-			<li>Samuel Pilafian <span class="text-muted">- UM Faculty, member of Boston Brass </span></li>
-			<li>Jay Pearson <span class="text-muted">- Former president of UM</span></li>
-			<li>Henry King Stanford <span class="text-muted">- Former president of UM</span></li>
-			<li>Ben Folds <span class="text-muted">- Cool Guy</span></li>
-		</ul>
-	</p>
 
+	<h3 class="title">Famous Chapter Members</h3> 
 
+	<div class="row">
+		<div class="media col-md-5">
+		  <div class="media-left media-middle">
+	      <img class="media-object img-circle img-thumbnail" src="images/about/Ben-Folds.jpg" alt="Ben Folds">
+		  </div>
+		  <div class="media-body media-middle">
+		    <h4 class="media-heading">Ben Folds <span class="text-muted"> - October 2015</span></h4>
+		    <p>
+		    	<a href="https://www.benfolds.com/" target="_blank">Website</a> -
+		    	<a href="https://www.sinfonia.org/2015/11/13/ben-folds-honorary-initiation/" target="_blank">Initiation Announcement</a>
+		    </p>
+		  </div>
+			<p>
+				<ul>
+					<!--<li>Ben Folds <span class="text-muted">- Cool Guy</span> October 2015</li> -->
+					<li><a href="https://en.wikipedia.org/wiki/Luciano_Pavarotti" target="_blank">Luciano Pavoratti</a> - Opera singer <span class="text-muted"> (April 1978) </span></li>
+					<!--<li>Ken Moses <span class="text-muted">- Former dean of the Frost School of Music</span> February 1969</li>-->
+					<li><a href="http://bostonbrass.com/about/sam-pilafian-tuba/" target="_blank">Samuel Pilafian</a> - UM Faculty, Member of Boston Brass <span class="text-muted"> (February 1969)</span></li>
+					<li><a href="https://en.wikipedia.org/wiki/Henry_King_Stanford" target="_blank">Henry King Stanford</a> - Former president of UM <span class="text-muted"> (May 1963)</span></li>
+					<li><a href="https://en.wikipedia.org/wiki/Jay_F._W._Pearson" target="_blank">Jay Pearson</a> - Former president of UM <span class="text-muted">(May 1953)</span></li>
+				</ul>
+			</p>
+		</div>
 
-	<br>
-	<p><i class="notice">Need pictures and initation dates of each of these</i></p>
-	<p><i class="notice">This is what it will look like with the pictures & info: </i></p>
-	
-	<div class="media">
-	  <div class="media-left">
-	    <a href="#">
-	      <img class="media-object" src="images/home/80th-logo.png" alt="...">
-	    </a>
-	  </div>
-	  <div class="media-body">
-	    <h4 class="media-heading">Person's name <span class="text-muted">(link to their website / wikipedia)</span></h4>
-	    <p>Additional info <span class="text-muted"> - Initiation Date</span></p>
-	  </div>
+		<div class="col-md-5 center-text">
+			<figure>
+				<img src="images/about/With-Ben-Folds.jpg" class="img-responsive center-block img-thumbnail">
+				<p><i class="text-muted">After initiating Brother Folds</i></p>
+			</figure>
+		</div>
 	</div>
-	
+
+
+
+	<!--<h3 class="title">Community Service</h3> 
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 center-text">
+			<figure>
+				<img src="images/about/MLK-day.jpg" class="img-responsive center-block img-thumbnail">
+				<p><i class="text-muted">MLK Day of service</i></p>
+			</figure>
+		</div>
+	</div>-->
+
+
 
 	<hr>
 
 
 	<blockquote class="center-text">
-		<p class="text-muted"><i class="notice">Insert other good quote here.</i>
+		<p class="text-muted">Once a Sinfonian, always a Sinfonian, long live Sinfonia!
 		</p>
 	</blockquote>
+
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">

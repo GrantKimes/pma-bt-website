@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<brothers>
+
+<brother name="alex_appel" status="alumni">
+	<full-name>Alex  Appel</full-name>
+	<hometown>Glen Head, New York</hometown>
+	<pledge-class>Fall 2009</pledge-class>
+	<major>Percussion Performance</major>
+	<minor/>
+	<grad-date>Spring 2013</grad-date>
+	<curr-position/>
+	<past-position>ARO, Music Director</past-position>
+</brother>
+
+<brother name="austin_clifton" status="active">
+	<full-name>Austin Michael Clifton</full-name>
+	<hometown>New Smyrna Beach</hometown>
+	<pledge-class>Fall 2012</pledge-class>
+	<major>Computer Engineering</major>
+	<minor/>
+	<grad-date>Spring 2016</grad-date>
+	<curr-position>Webmaster</curr-position>
+	<past-position/>
+</brother>
+
+<brother name="john_santucci iii" status="active"><full-name>John Joseph Santucci III</full-name><hometown>Stafford, Va</hometown><pledge-class>Fall 2010</pledge-class><major>Mechanical Engineering</major><minor/><grad-date>Spring 2015</grad-date><curr-position/><past-position>President, Treasurer</past-position></brother>
+
+<brother name="nicholas_wood" status="active"><full-name>Nicholas Wood</full-name><hometown>Darien</hometown><pledge-class>Fall 2012</pledge-class><major>Undeclared</major><minor/><grad-date>Spring 2016</grad-date><curr-position>Alumni Relations Officer</curr-position><past-position/></brother>
+
+<brother name="sahil_sethi" status="alumni"><full-name>Sahil M Sethi</full-name><hometown>Boca Raton, FL. </hometown><pledge-class>Spring, 2011</pledge-class><major>Music Business</major><minor>Marketing, Entrepeneurship</minor><grad-date>May, 2013</grad-date><curr-position/><past-position>Vice-President </past-position></brother>
+
+<brother name="russell_klein" status="alumni"><full-name>Rustel Marrk Kline</full-name><hometown>Boca Raton</hometown><pledge-class>Spring \'11</pledge-class><major>Woman</major><minor>Is a woman</minor><grad-date>Spring 2013</grad-date><curr-position/><past-position>Fraternity Education Officer, Spring 201e</past-position></brother>
+
+<brother name="root_root" status="active eboard"><fname>root</fname><mname>Michael</mname><lname>root</lname><hometown>New Smyrna Beach, Florida</hometown><pledge-class-semester>Fall</pledge-class-semester><pledge-class-year>2012</pledge-class-year><major>Computer Engineering</major><grad-date-semester>Spring</grad-date-semester><grad-date-year>2016</grad-date-year><curr-position>Webmaster</curr-position></brother></brothers>

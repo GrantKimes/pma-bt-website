@@ -147,7 +147,7 @@
 	        <h4 class="modal-title" id="exampleModalLabel">Success</h4>
 	      </div>
 	      <div class="modal-body">
-	      <p id="response-modal-text">Your order was received!</p>
+	      <p id="response-modal-text">Your order was received! You will recieve an email for confirmation.</p>
 	      <!--
 	        <form>
 	          <div class="form-group">
@@ -162,7 +162,7 @@
 	        -->
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" onclick="location.reload();" class="btn btn-primary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
 	        <!--<button type="button" class="btn btn-primary">Send message</button>-->
 	      </div>
 	    </div>

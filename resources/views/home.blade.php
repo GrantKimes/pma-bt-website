@@ -37,23 +37,20 @@
       </div>
 
       <div class="item">
+        <img src="images/home/carousel/With Frenk.jpg" alt="" class="img-responsive center-block">
+        <div class="carousel-caption">
+        </div>
+      </div>
+
+      <div class="item">
         <img src="images/home/carousel/Fall-13.jpg" alt="" class="img-responsive center-block">
         <div class="carousel-caption">
-          <p>Fall '13 pledge class</p>
         </div>
       </div>
 
       <div class="item">
         <img src="images/home/carousel/Fall-16.jpg" alt="" class="img-responsive center-block">
         <div class="carousel-caption">
-          <p>Fall '16 pledge class</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="images/home/carousel/With Frenk.jpg" alt="" class="img-responsive center-block">
-        <div class="carousel-caption">
-          <p>Alongside President Frenk</p>
         </div>
       </div>
 
@@ -72,44 +69,23 @@
 </div>
 
 
-<!-- Main content -->
 <div id="main-content" class="container">
-<!--
-	<div id="homeCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#homeCarousel" data-slide-to="1"></li>
-      <li data-target="#homeCarousel" data-slide-to="2"></li>
-    </ol>
+  <hr>
 
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img src="images/home/Colored-background.jpg" alt="" class="img-responsive center-block">
-        <div class="carousel-caption">
-          <p>Here is description text</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="images/home/Fall-13.jpg" alt="" class="img-responsive center-block">
-      </div>
-
-      <div class="item">
-        <img src="images/home/Pin-render.png" alt="" class="img-responsive center-block">
-      </div>
-
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading title">Singing Valentines</h2>
+      <p class="lead">
+        Valentine's Day is coming up, and Phi Mu Alpha will be going around UM's campus to deliver our annual Singing Valentines! 
+      </p>
+      <p class="lead">
+        They will be on sale <strong>Tuesday, Feb. 7 - Thursday, Feb. 9</strong>. Find more information <a href="{{ route('sv') }}">here</a>.
+      </p>
     </div>
-
-    <a class="left carousel-control" href="#homeCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#homeCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    <div class="col-md-5">
+      <img src="images/home/Lovell-in-Heart.jpg" class="featurette-image img-responsive center-block img-thumbnail" alt="Singing Valentines">
+    </div>
   </div>
--->
 
 
   <hr>
@@ -118,10 +94,10 @@
     <div class="col-md-7 col-md-push-5">
       <h2 class="featurette-heading title">80th Anniversary Concert</h2>
       <p class="lead">
-      	On March 5th 2017, we will be celebrating 80 years as a chapter on the University of Miami campus! 
+      	On <strong>March 5th</strong>, the Beta Tau chapter will be celebrating 80 years at the University of Miami! 
       </p>
       <p class="lead">
-        There will be a Chapter Day ceremony, as well as our All American Concert featuring performances from current brothers and visiting alumni. More information still to come.
+        We will be hosting our annual All American Concert featuring performances from returning alumni alongside current brothers. More information still to come.
       </p>
     </div>
     <div class="col-md-5 col-md-pull-7">
@@ -136,7 +112,6 @@
       <h2 class="featurette-heading title">Spring Rush</h2>
       <p class="lead">
       	Upcoming rush events open to any student at UM interested in learning more about Phi Mu Alpha:
-
       </p>
 
       <div class="col-md-6">

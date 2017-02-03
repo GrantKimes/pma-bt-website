@@ -32,8 +32,9 @@ Route::get('/botb', function () {
 
 
 // Controllers are app/Http/Controllers
-Route::get('/sv/order', 'SVController@create')->name('create_order');
+Route::get('/sv/order', 'SVController@create')->name('create_order'); //->middleware('auth')
 Route::get('/sv/view', 'SVController@viewOrders')->name('view_orders');
+
 
 
 // Post method for form submission

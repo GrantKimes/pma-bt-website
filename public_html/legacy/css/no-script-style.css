@@ -1,0 +1,29 @@
+/* =general-formatting */
+
+a:hover{
+	color: #c50b33;
+}
+
+nav ul li:hover ul{
+	display: block;
+}
+
+nav ul ul li:hover{
+	background-color: #e6e6e6;
+}
+
+nav ul ul a{
+	display: block;
+	padding: 8px 4px;
+}
+
+#prev-button, #next-button{
+	display: none;
+}
+
+/* =edit-bros-page */
+
+#bio-preview{
+
+	display: none;
+}

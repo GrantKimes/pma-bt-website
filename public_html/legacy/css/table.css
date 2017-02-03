@@ -1,0 +1,19 @@
+body
+{
+	padding: 4px;
+}
+
+table
+{
+	margin-bottom: 16px;
+}
+
+table, th, td
+{
+	border: 1px solid black;
+}
+
+th, td
+{
+	padding: 8px;
+}

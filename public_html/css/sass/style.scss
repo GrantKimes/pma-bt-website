@@ -60,6 +60,10 @@ blockquote p {
 h1.title {
   text-shadow: 2px 2px 2px $gray-light;
   margin-top: 0px;
+
+  @media screen and (max-width: 768px) { 
+    font-size: 2em; // sm (tablet) 
+  }
 }
 
 
@@ -73,23 +77,20 @@ h1.title {
 /* =================================== */
 
 #coat-of-arms { max-height: 150px; }
-#u-logo { max-height: 150px; }
+#u-logo { max-height: 150px; padding-top: 10px;}
 #among-men-harmony { max-height: 40px; }
 #lyre-logo-old { max-height: 200px; }
 #navbar-logo { max-height: 30px; }
 #botb-logo { max-height: 200px; }
+#snapchat-icon { height: 40px; }
 
 img.featurette-image {
   height: 350px;
 }
 
 img.media-object {
-  height: 60px;
+  height: 100px;
 }
-
-
-
-
 
 
 
@@ -102,6 +103,8 @@ img.media-object {
 .navbar {
   border-radius: 0px;
 }
+
+.navbar-brand img { max-height: 30px; }
 
 $bgDefault      : $red-primary;
 $bgHighlight    : $red-dark;
