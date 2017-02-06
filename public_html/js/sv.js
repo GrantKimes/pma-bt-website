@@ -1,19 +1,40 @@
 
 var errMsg;
+var table;
+var daysDropdown;
 
 $(document).ready(function() {
 
 	errMsg = $('#error-message');
 	errMsg.removeClass('hidden').hide();
 
+	$('#response-modal').on('hidden.bs.modal', function() {
+		location.reload();
+	});
 
 	submitOrder();
 
 
 	updateTimeslotOnDaySelect();
+	viewDaySelect();
 
 
-	$('table.datatable').DataTable();
+	var dt_settings = {
+		order: [[7, 'desc']],
+		//responsive: true,
+		columns: [
+			{ name: "recipient_name" },
+			{ name: "sender_name" },
+			{ name: "sender_email", visible: false },
+			{ name: "location" },
+			{ name: "song" },
+			{ name: "day" },
+			{ name: "timeslot" },
+			{ name: "comment" },
+			{ name: "order_id", visible: false },
+		]
+	};
+	table = $('table.datatable').DataTable(dt_settings);
 
 	$('.toggle').hide();
 	$('#showHiddenColumnsButton').on('click', function() {
@@ -31,9 +52,11 @@ function submitOrder() {
 
 		var form = $('form');
 
-		if (! validate(form) ) {
+		// If there's an error with the form, don't send AJAX request. 
+		var error = validate(form);
+		if (error != false ) {
 			console.log("Invalid form input");
-			errMsg.show('fast');
+			showError(error);
 			return;
 		}
 
@@ -46,52 +69,131 @@ function submitOrder() {
 				var success = response.success;				
 				var order = response.order;
 				console.log(order);
-				console.log(order.sender_name + ", your order was successful");
 
-				var text = '<p>Your order for ' + order.recipient_name + ' was successful!</p>'
-					+ '</p>A confirmation email has been sent to ' + order.sender_email + '.</p>';
-				$('#response-modal-text').html(text);
+				if (success) {
+					var text = '<p>' + order.sender_name + ', your order for ' + order.recipient_name + ' was successful!</p>'
+						+ '</p>A confirmation email has been sent to ' + order.sender_email + '.</p>';
+					$('#response-modal-text').html(text);
 
-				var options = {};
-				$('#response-modal').modal(options);
-				console.log("made modal");
+					var options = {};
+					$('#response-modal').modal(options);
+				}
+				else {
+					console.log("Error with submitting order");
+				}
 			},
 
 			error: function(response) {
-				console.log("Error with request");
+				console.log("Error with submission:");
 				console.log(response);
+				showError("Error processing submission.");
 			}
 		});
-		//$.post('/sv', form);
 	});
+}
+
+function showError(errorMessage) {
+	errMsg.text(errorMessage).show('fast')
 }
 
 
 // Change timeslot dropdown according to which day of week is selected.
 function updateTimeslotOnDaySelect() {
-	$('select[name=day]').change(function() {
+	$('select.create[name=day]').change(function() {
 		var val = $(this).val();
-		var dropdownHtml = '<option value="" selected>Select a time on ' + val + '</option>';
-		for (var i = 0; i < timeslots[val].length; i++) {
-			dropdownHtml += '<option>' + timeslots[val][i] + '</option>';
+		var dropdownHtml;
+
+		if (val != '') {
+			var currDay = timeslots[val];
+			dropdownHtml = '<option value="" selected>-- Select a time on ' + readableDate(val) + ' --</option>';
+			for (var i = 0; i < currDay.length; i++) {
+				var currSlot = currDay[i];
+				var disabledIfFilled = (currSlot.filled) ? 'disabled' : '';
+				dropdownHtml += '<option ' + disabledIfFilled + '>' + currSlot.time + '</option>';
+			}
+
+		}
+		else if (val == '') {
+			dropdownHtml = '<option value="" selected>-- Choose a timeslot --</option>' + '<option value="" disabled>Select a day first</option>';
 		}
 
 		$('select[name=timeslot]').html(dropdownHtml);
 	});
 }
 
-// Input is required for each of the input & select fields
-// Not required for comment field, which is textarea element
-function validate(form) {
-	var valid = true;
 
-	form.find('input, select').each(function(index) {
-		if ($(this).val() == '') {
-			valid = false;
+// On view page, select timeslot and sort table accordingly.
+function viewDaySelect() {
+	$('select.view[name=day]').change(function() {
+		var day = $(this).val();
+		var dropdownHtml;
+
+		if (day != '') {
+			var currDay = timeslots[day];
+			var dropdownHtml = '<option value="" selected>All times</option>';
+			for (var i = 0; i < currDay.length; i++) {
+				var currSlot = currDay[i];
+				dropdownHtml += '<option>' + currSlot.time + ' (' + currSlot.num_slots_taken + '/' + currSlot.num_slots + ')</option>';
+			}
 		}
+		else if (day == '') {
+			dropdownHtml = '<option value="" selected>All times</option>';
+		}
+
+		$('select[name=timeslot]').html(dropdownHtml);
+
+		table.column('timeslot:name').search('');
+		table.column('day:name').search(day).draw();
+		console.log("Searching for " + day);
 	});
 
-	return valid;
+	$('select.view[name=timeslot]').change(function() {
+		var timeslot = $(this).val();
+
+		table.column('timeslot:name').search(timeslot).draw();
+	});
 }
 
 
+
+
+// Input is required for each of the input & select fields
+// Not required for comment field, which is textarea element
+function validate(form) {
+	var error = false;
+	var inputLength = 200;
+	var commentLength = 500;
+
+	form.find('input, select').each(function(index) {
+		//console.log($(this).val().length );
+		if ($(this).val().length > inputLength) {
+			error = 'Inputs cannot be longer than ' + inputLength + ' characters.'
+		}
+		if ($(this).val() == '') {
+			error = 'Please fill out all fields.'
+		}
+	});
+
+	//console.log(form.find('textarea').first().val());
+	//console.log(form.find('textarea').first().val().length);
+	if (form.find('textarea').first().val().length > commentLength) {
+		error = 'Comment cannot be longer than ' + commentLength + ' characters.'
+	}
+
+	return error;
+}
+
+
+function readableDate(shortDate) {
+	dates = {
+		fri: 'Friday, Feb. 10',
+		mon: 'Monday, Feb. 13',
+		tue: 'Tuesday, Feb. 14'
+	};
+
+	return dates[shortDate];
+}
+
+daysDropdown = '<option value="fri">Friday, February 10</option>'
+	+ '<option value="mon">Monday, February 13</option>'
+	+ '<option value="tue">Tuesday, February 14</option>';

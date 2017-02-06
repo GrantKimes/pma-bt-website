@@ -32,8 +32,9 @@ Route::get('/botb', function () {
 
 
 // Controllers are app/Http/Controllers
-Route::get('/sv/order', 'SVController@create')->name('create_order'); //->middleware('auth')
-Route::get('/sv/view', 'SVController@viewOrders')->name('view_orders');
+Route::get('/sv/order', 'SVController@create')->name('create_order')->middleware('auth');
+Route::get('/sv/view', 'SVController@viewOrders')->name('view_orders')->middleware('auth');
+Route::get('/sv/login', 'SVController@login')->name('sv_login');
 
 
 
@@ -44,7 +45,7 @@ Route::post('/sv', 'SVController@store')->name('store_order');
 
 
 Route::get('/', function () {
-    return view('home');
+    return view('homepage');
 })->name('home');
 
 
@@ -55,3 +56,8 @@ Route::get('/', function () {
 Route::group(['middleware' => 'auth'], function() { 
 	Route::get(...)
 }); */
+
+
+// Auto generated auth routing
+Auth::routes();
+Route::get('/home', 'HomeController@index');

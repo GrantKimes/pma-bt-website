@@ -24,7 +24,7 @@
 			</p>
 			<div class="alert alert-info">
 			<p><strong>
-				Days: Friday, Feb. 10 - Monday, Feb. 13 - Tuesday, Feb. 14
+				Days: Friday Feb. 10, Monday Feb. 13, Tuesday Feb. 14
 			</strong></p>
 			</div>
 			
@@ -58,7 +58,7 @@
 				<li>Any comments or special requests</li>
 			</ul>
 			<p>
-				If you have any questions or requests, you can send an email to <a href="mailto:sv@betataupma.org">SV@BetaTauPMA.org</a>.
+				If you have any questions or requests, you can send an email to <a href="mailto:sv@betataupma.org">SV@BetaTauPMA.org</a> or message our <a href="https://www.facebook.com/betatau1937/" target="_blank">Facebook page</a>.
 			</p>
 		</div>
 

@@ -29,8 +29,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:" rel="stylesheet">
 
 
-@section('additional_includes')
-@show
+	@section('additional_includes')
+	@show
 
 
 	<!-- My stylesheet -->
@@ -71,6 +71,10 @@
 	      	<li class="@yield('about_tab')"><a href="{{ route('about') }}">About</a></li>
 	      	<!--<li class="@yield('concerts_tab')"><a href="{{ route('concerts') }}">Concerts</a></li>-->
 	      	<li class="@yield('sv_tab')"><a href="{{ route('sv') }}">Singing Valentines</a></li>
+			@if (Auth::check()) 
+	      	<li class="@yield('sv_order_tab')"><a href="{{ route('create_order') }}">Order</a></li>
+	      	<li class="@yield('sv_view_tab')"><a href="{{ route('view_orders') }}">View</a></li>			
+			@endif
 	      	<li class="@yield('botb_tab')"><a href="{{ route('botb') }}">Battle of the Bands</a></li>
 	      	<!--<li><a>Gallery</a></li>-->
 	      </ul>
@@ -95,8 +99,6 @@
 
 			<div class="col-md-4 col-sm-3 col-xs-4 col-xs-offset-0 col-sm-offset-0 center-text">
 				<img src="/images/U logo.gif" id="u-logo" class="img-responsive center-block">
-				<!--<h3 class="title">Est. 1937</h3>
-				<p><i>(Website currently under development)</i></p>-->
 			</div>
 		</div>
 
@@ -122,14 +124,17 @@
 			<div class="col-md-6 center-text">
 				<p class="text-muted"><a href="mailto:brotherhood@betataupma.org">Brotherhood@BetaTauPMA.org</a></p>
 				<p><a href="/legacy/index.php">Legacy Site</a></p>
-			</div>
 
-			<!--
-			<div class="list-group col-md-4 col-md-offset-4 center-text">
-				<a href="mailto:brotherhood@betataupma.org" class="list-group-item">Brotherhood@BetaTauPMA.org</a>
-				<a href="https://www.facebook.com/betatau1937/" class="list-group-item" target="_blank">Facebook Page</a>
-				<a href="/legacy/index.php" class="list-group-item">Legacy Site</a>
-			</div>-->
+				
+				@if (Auth::check()) 
+				<p>Logged in: {{ Auth::user()->name }} - 
+				  <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+				  <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+				@else
+					<a href="{{ url('/login') }}">Login</a>
+				@endif
+				
+			</div>
 
 
 			<div class="col-md-6 center-block">
@@ -140,4 +145,16 @@
 	</div>
 
 
+
+	<!-- Google Analytics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-91329586-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
+
 </body>
+</html>
