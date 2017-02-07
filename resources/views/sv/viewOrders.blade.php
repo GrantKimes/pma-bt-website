@@ -27,7 +27,7 @@
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
+			<div class="panel panel-info">
 				<div class="panel-heading">
 					<h3 class=" panel-title">View Orders</h3>
 				</div>
@@ -63,8 +63,8 @@
 				<tr>
 					<th>Recipient Name</th>
 					<th>Sender Name</th>
-					<th>Sender Email</th>
 					<th>Location</th>
+					<th>Sender Email</th>
 					<th>Song</th>
 					<th>Day</th>
 					<th>Timeslot</th>
@@ -79,8 +79,8 @@
 				<tr>
 					<td>{{ $order->recipient_name }}</td>
 					<td>{{ $order->sender_name }}</td>
-					<td>{{ $order->sender_email }}</td>
 					<td>{{ $order->location }}</td>
+					<td>{{ $order->sender_email }}</td>
 					<td>{{ $order->song_choice }}</td>
 					<td>{{ $order->day }}</td>
 					<td>{{ $order->timeslot }}</td>
@@ -94,20 +94,23 @@
 	</div>
 
 
+
+	<hr/>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
+			<div class="panel panel-info">
 				<div class="panel-heading">
 					<h3 class=" panel-title">Links</h3>
 				</div>
 				<div class="panel-body">
-					<p><a href="http://doodle.com/poll/nw9xmgyzmamcsugk">Tabling Doodle</a></p>
-					<p><a>Link to each of the songs</a></p>
+					<p><a href="http://doodle.com/poll/nw9xmgyzmamcsugk" target="_blank">Doodle for tabling</a></p>
+					<p><a href="" target="_blank">Doodle for singing</a></p>
+					<p><a>Link to each of the songs, and/or just list their starting pitches</a></p>
 				</div>
 			</div>
 		</div>
-
 	</div>
+
 
 </div>
 

@@ -21,7 +21,8 @@
 @section('content')
 
 <div class="container">
-	<div class="row">
+
+{{-- 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<h2 class="title center-text">Order Singing Valentines</h2>
 			<div class="alert alert-info">
@@ -29,6 +30,22 @@
 				<p>And more info, put this in a nice container.</p>
 			</div>
 		</div>
+	</div>
+ --}}
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class=" panel-title">Place an Order for Singing Valentines</h3>
+				</div>
+				<div class="panel-body">
+					<p>We find the recipient during class and serenade them with the song you request, give them a rose and candy, and deliver any message you would like.</p> 
+					<p>Each order costs $10, and can be paid with cash, Venmo, or Paypal.</p> 
+				</div>
+			</div>
+		</div>
+
 	</div>
 
 
@@ -57,14 +74,14 @@
 			  <div class="form-group">
 			    <label for="sender_name" class="col-md-3 control-label">Sender's name</label>
 			    <div class="col-md-6">
-			    	<input name="sender_name" type="text" class="form-control" placeholder="Your name">
+			    	<input name="sender_name" type="text" class="form-control" placeholder="Your name (will remain anonymous)">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="sender_email" class="col-md-3 control-label">Sender's email address</label>
 			    <div class="col-md-6">
-				    <input name="sender_email" type="text" class="form-control" placeholder="Your email for receipt">
+				    <input name="sender_email" type="text" class="form-control" placeholder="Your email (for receipt)">
 			    </div>
 			  </div>
 
@@ -117,7 +134,7 @@
 			  <div class="form-group">
 					<label for="location" class="col-md-3 control-label">Location</label>
 			    <div class="col-md-6">
-				    <input name="location" type="text" class="form-control" placeholder="Ex. Dooly 101">
+				    <input name="location" type="text" class="form-control" placeholder="Building & room on campus, ex: Dooly 101">
 			    </div>
 			  </div>
 
@@ -151,7 +168,7 @@
        	-->
        	<div class="col-md-6 col-md-offset-3">
 				  <div id="error-message" class="alert alert-danger hidden">
-				  	Please fill out all fields.
+				  	Error submitting order. Your session may have timed out, try refreshing the page.
 	       	</div>
        	</div>
 				

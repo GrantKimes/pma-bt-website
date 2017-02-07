@@ -6,6 +6,7 @@ use Illuminate\Http\Request as HttpRequest;
 use Request as Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 use App\Order;
 use App\Timeslot;
@@ -13,52 +14,21 @@ use App\Mail\OrderReceived;
 
 class SVController extends Controller
 {
-	// Page for creating an order for a new singing valentine
+	// Page for creating an order for a new singing valentine.
     public function create() {
-
-    	//return view('sv.order', ['data' => SVOrder::all() ] );
-
-    	/*
-    	$fri = Timeslots::where('day', '=', 'Friday');
-    	$mon = Timeslots::where('day', '=', 'Monday');
-    	$tue = Timeslots::where('day', '=', 'Tuesday');
-    	$timeslots = [
-    		'fri' => $fri,
-    		'mon' => $mon,
-    		'tue' => $tue
-    	];*/
-    	// data to pass to order form: day/timeslots, whether they are full
 
         // Pass timeslots structure from database for dropdown menu.
         $timeslots = $this->getTimeslots();
-        /*$timeslots = [
-            'fri'   => Timeslot::select('day_of_week', 'class_time', 'num_slots')->where('day_of_week', 'fri')->get(),
-            'mon'   => Timeslot::select('day_of_week', 'class_time', 'num_slots')->where('day_of_week', 'mon')->get(),
-            'tue'   => Timeslot::select('day_of_week', 'class_time', 'num_slots')->where('day_of_week', 'tue')->get()
-        ];
-
-        // Determine for each timeslot if there are already the max amount of orders.
-        foreach ($timeslots as $day) { // through fri, mon, tue
-            foreach ($day as $slot) { // through fri order 1, fri order 2, etc
-                $num_slots_taken = Order::where('day', $slot['day_of_week'])->where('timeslot', $slot['class_time'])->count();
-                if ($num_slots_taken >= $slot['num_slots']) { 
-                    $slot['filled'] = 'true';
-                }  
-                else {
-                    $slot['filled'] = 'false';
-                }
-            }
-        }*/
-
 
 
     	return view('sv.create', ['timeslots' => $timeslots] );
     }
 
-    // view
+    // View existing orders.
     public function viewOrders() {
         $orders = Order::all();
-        foreach ($orders as $order) {
+
+        foreach ($orders as $order) { // Capitalize each day, ex. Fri instead of fri
             $order['day'] = ucfirst($order->day);
         }
         //$songCount = Order::
@@ -66,9 +36,9 @@ class SVController extends Controller
         return view('sv.viewOrders', ['orders' => $orders, 'timeslots' => $timeslots] );
     }
 
-    // edit
+    // Edit
 
-    // Request to store new order in database
+    // Request to store new order in database, sent as a POST from create page. 
     public function store(HttpRequest $request) {
     	$input = Request::all();
 
@@ -88,21 +58,87 @@ class SVController extends Controller
         // if ordersMade >= totalAvailable, already full
         // Should respond here to tell that slot is full
 
+        $num_slots = Timeslot::select('num_slots')
+            ->where('day_of_week', $order->day)
+            ->where('class_time', $order->timeslot)
+            ->get()[0]['num_slots'];
+
+        $num_slots_taken = Order::where('day', $order->day)
+            ->where('timeslot', $order->timeslot)
+            ->count();
+
+
+        Log::debug($order->day . ' ' . $order->timeslot . " - num_slots: " . $num_slots . ", num_slots_taken: " . $num_slots_taken);
+        if ($num_slots_taken >= $num_slots) { // Filled
+            $response['success'] = false;
+            $response['error'] = "Could not place order, that timeslot is already filled. ";
+            $response['order'] = $order;
+            return $response;
+        }
+
 
         // Save order to database
     	$order->save();
 
-
+        /*
+        Log::debug("Before sending mail");
         // Send confirmation email
-        //Mail::to("grantkimes@gmail.com")
+        try {
+        Mail::to("grantkimes@gmail.com")
+            ->from("SV@betataupma.org")
             //->bcc("SV_Responses@betataupma.org")
-        //    ->send(new OrderReceived($order));
+            ->send(new OrderReceived($order));
+        }
+        catch (Exception $e) {
+            Log::error($e->getMessage());
+            dd($e->getMessage());
+        }
 
-        $to = "g.kimes@umiami.edu";
-        $subject = "Singing Valentines Confirmation";
-        $message = "Thank you for your order, ".$order->sender_name.". Here's info about it: ".$order->recipient_name."\n";
-        $additionalHeaders;
-        //mail($to, $subject, $message);
+        Log::debug("After sending mail");
+        */
+
+        // Send confirmation email. 
+        $to = $order->sender_email;
+        $subject = "Singing Valentines Order for " . $order->recipient_name;
+        $message = "<html><body>"
+            . "<p>Thank you for your order, " . $order->sender_name . ". Here's the details:</p>" 
+            . "<ul>"
+            . "<li>Recipient: <b>" . $order->recipient_name . "</b></li>"
+            . "<li>Day: <b>" . toReadableDay($order->day) . "</b></li>"
+            . "<li>Timeslot: <b>" . $order->timeslot . "</b></li>"
+            . "<li>Location: <b>" . $order->location . "</b></li>"
+            . "<li>Song: <b>" . $order->song_choice . "</b></li>"
+            . "<li>Comment: <b>" . $order->comment . "</b></li>"
+            . "</ul>"
+            . "<p>If you have any questions or concerns, you can send an email to SV@BetaTauPMA.org, or send a message our <a href='https://www.facebook.com/betatau1937/'> Facebook page</a>.<p>"
+            . "</body></html>";
+
+        // $message = "Thank you for your order, " . $order->sender_name . ". Here's the details: \n\n" 
+        //     . "- Recipient: " . $order->recipient_name . "\n"
+        //     . "- Day: " . toReadableDay($order->day) . "\n"
+        //     . "- Timeslot: " . $order->timeslot . "\n"
+        //     . "- Location: " . $order->location . "\n"
+        //     . "- Song: " . $order->song_choice . "\n"
+        //     . "- Comment: " . $order->comment . "\n\n\n"
+        //     . "If you have any questions or concerns, you can send an email to SV@BetaTauPMA.org, or message our Facebook page.";
+
+
+        $additionalHeaders[] = 'From: UMiami Phi Mu Alpha <SV@BetaTauPMA.org>';
+        $additionalHeaders[] = 'To: '.$to;
+        $additionalHeaders[] = 'Return-Path: <sv_responses@BetaTauPMA.org>';
+        $additionalHeaders[] = 'MIME-Version: 1.0';
+        $additionalHeaders[] = 'Bcc: SV Responses <sv_responses@BetaTauPMA.org>';
+        $additionalHeaders[] = 'Content-type: text/html; charset=iso-8859-1';
+
+        try {
+            $val = mail($to, $subject, $message, implode("\r\n", $additionalHeaders));
+        }
+        catch (Exception $e) {
+            Log::error($e->getMessage());
+        }
+
+        Log::info('Sending email to ' . $to . ', mail() return value: ' . $val . '.');
+        
 
 
         $response = [];
@@ -110,7 +146,6 @@ class SVController extends Controller
         $response['order'] = $order;
 
     	return $response;
-    	// Upon valid creation, return redirect to /sv/order with success message
     }
 
 
@@ -149,4 +184,13 @@ class SVController extends Controller
         return view('sv.login');
     }
 
+}
+
+function toReadableDay($shortDay) {
+    $days = [
+        'fri' => 'Friday, February 10',
+        'mon' => 'Monday, February 13',
+        'tue' => 'Tuesday, February 14'
+    ];
+    return $days[$shortDay];
 }

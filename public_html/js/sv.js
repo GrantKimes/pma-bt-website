@@ -20,13 +20,13 @@ $(document).ready(function() {
 
 
 	var dt_settings = {
-		order: [[7, 'desc']],
+		order: [[8, 'desc']],
 		//responsive: true,
 		columns: [
 			{ name: "recipient_name" },
 			{ name: "sender_name" },
-			{ name: "sender_email", visible: false },
 			{ name: "location" },
+			{ name: "sender_email", },
 			{ name: "song" },
 			{ name: "day" },
 			{ name: "timeslot" },
@@ -72,7 +72,7 @@ function submitOrder() {
 
 				if (success) {
 					var text = '<p>' + order.sender_name + ', your order for ' + order.recipient_name + ' was successful!</p>'
-						+ '</p>A confirmation email has been sent to ' + order.sender_email + '.</p>';
+						+ '<p>A confirmation email has been sent to ' + order.sender_email + '.</p>';
 					$('#response-modal-text').html(text);
 
 					var options = {};
@@ -80,6 +80,7 @@ function submitOrder() {
 				}
 				else {
 					console.log("Error with submitting order");
+					showError(response.error);
 				}
 			},
 
@@ -93,6 +94,9 @@ function submitOrder() {
 }
 
 function showError(errorMessage) {
+	if (errorMessage == '') {
+		errorMessage = 'Error submitting order. Your session may have timed out, try refreshing the page.'
+	}
 	errMsg.text(errorMessage).show('fast')
 }
 
@@ -133,7 +137,7 @@ function viewDaySelect() {
 			var dropdownHtml = '<option value="" selected>All times</option>';
 			for (var i = 0; i < currDay.length; i++) {
 				var currSlot = currDay[i];
-				dropdownHtml += '<option>' + currSlot.time + ' (' + currSlot.num_slots_taken + '/' + currSlot.num_slots + ')</option>';
+				dropdownHtml += '<option value="' + currSlot.time + '">' + currSlot.time + ' (' + currSlot.num_slots_taken + '/' + currSlot.num_slots + ')</option>';
 			}
 		}
 		else if (day == '') {
@@ -149,6 +153,7 @@ function viewDaySelect() {
 
 	$('select.view[name=timeslot]').change(function() {
 		var timeslot = $(this).val();
+		console.log("searching for " + timeslot);
 
 		table.column('timeslot:name').search(timeslot).draw();
 	});
