@@ -74,7 +74,8 @@ function submitOrder() {
 
 				if (success) {
 					var text = '<p>' + order.sender_name + ', your order for ' + order.recipient_name + ' was successful!</p>'
-						+ '<p>A confirmation email has been sent to ' + order.sender_email + '.</p>';
+						+ '<p>A confirmation email has been sent to ' + order.sender_email + '.</p>'
+						+ '<p><strong>Make sure to pay $10 cash or Venmo @JordanCraftPMA.</strong></p>';
 					$('#response-modal-text').html(text);
 
 					var options = {};
