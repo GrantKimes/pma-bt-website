@@ -42,6 +42,7 @@
 				<div class="panel-body">
 					<p>We find the recipient during a class period and serenade them with a song, give them a rose and candy, and deliver any message you would like.</p> 
 					<p>Each order costs $10, and can be paid with cash, Venmo (@JordanCraftPMA), or Paypal (SinfoniaBanking@gmail.com).</p> 
+					<p>If you have any questions, you can send an email to <strong>SV@BetaTauPMA.org</strong>.</p>
 				</div>
 			</div>
 		</div>
