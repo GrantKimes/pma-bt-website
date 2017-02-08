@@ -48,6 +48,7 @@ $(document).ready(function() {
 
 function submitOrder() {
 	$('#submit-button').on('click', function(event) {
+		$(this).prop('disabled', true);
 		errMsg.hide();
 
 		var form = $('form');
@@ -57,6 +58,7 @@ function submitOrder() {
 		if (error != false ) {
 			console.log("Invalid form input");
 			showError(error);
+			$(this).prop('disabled', false);
 			return;
 		}
 
@@ -66,7 +68,7 @@ function submitOrder() {
 			data: form.serialize(),
 
 			success: function(response) {
-				var success = response.success;				
+				var success = response.success;			
 				var order = response.order;
 				console.log(order);
 
@@ -81,6 +83,7 @@ function submitOrder() {
 				else {
 					console.log("Error with submitting order");
 					showError(response.error);
+					$(this).prop('disabled', false);
 				}
 			},
 
@@ -88,6 +91,7 @@ function submitOrder() {
 				console.log("Error with submission:");
 				console.log(response);
 				showError("Error processing submission.");
+				$(this).prop('disabled', false);
 			}
 		});
 	});
