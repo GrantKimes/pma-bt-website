@@ -97,20 +97,24 @@ class SVController extends Controller
         Log::debug("After sending mail");
         */
 
+
         // Send confirmation email. 
         $to = $order->sender_email;
         $subject = "Singing Valentines Order for " . $order->recipient_name;
         $message = "<html><body>"
-            . "<p>Thank you for your order, " . $order->sender_name . ". Here's the details:</p>" 
+            . "<p>Thank you for your order, " . $order->sender_name . ". Here are the details:</p>" 
             . "<ul>"
             . "<li>Recipient: <b>" . $order->recipient_name . "</b></li>"
+            . "<li>Sender: <b>" . $order->sender_name . "</b></li>"
+            //. "<li>Sender Email: <b>" . $order->sender_email . "</b></li>"
             . "<li>Day: <b>" . toReadableDay($order->day) . "</b></li>"
             . "<li>Timeslot: <b>" . $order->timeslot . "</b></li>"
             . "<li>Location: <b>" . $order->location . "</b></li>"
             . "<li>Song: <b>" . $order->song_choice . "</b></li>"
             . "<li>Comment: <b>" . $order->comment . "</b></li>"
             . "</ul>"
-            . "<p>If you have any questions or concerns, you can send an email to SV@BetaTauPMA.org, or send a message our <a href='https://www.facebook.com/betatau1937/'> Facebook page</a>.<p>"
+            . "<p>We have a Snapchat filter! Find out more on our <a href='http://betataupma.org/sv'>website</a>.</p>"
+            . "<p>If you have any questions or would like to change your order, you can reply to this email (SV@BetaTauPMA.org).<p>"
             . "</body></html>";
 
         // $message = "Thank you for your order, " . $order->sender_name . ". Here's the details: \n\n" 
@@ -124,19 +128,22 @@ class SVController extends Controller
 
 
         $additionalHeaders[] = 'From: UMiami Phi Mu Alpha <SV@BetaTauPMA.org>';
-        $additionalHeaders[] = 'To: '.$to;
-        $additionalHeaders[] = 'Return-Path: <sv_responses@BetaTauPMA.org>';
+        //$additionalHeaders[] = 'To: '.$to;
+        $additionalHeaders[] = 'Return-Path: <SV@BetaTauPMA.org>';
         $additionalHeaders[] = 'MIME-Version: 1.0';
-        $additionalHeaders[] = 'Bcc: SV Responses <sv_responses@BetaTauPMA.org>';
+        $additionalHeaders[] = 'Bcc: webmaster.betataupma@gmail.com';
         $additionalHeaders[] = 'Content-type: text/html; charset=iso-8859-1';
 
         try {
             $val = mail($to, $subject, $message, implode("\r\n", $additionalHeaders));
+
+            // Send additional copy for our records, since BCC isn't working
+            //$additionalHeaders[1] = 'To: webmaster.betataupma@gmail.com';
+            //mail('webmaster.betataupma@gmail.com', $subject, $message, implode("\r\n", $additionalHeaders));
         }
         catch (Exception $e) {
             Log::error($e->getMessage());
         }
-
         Log::info('Sending email to ' . $to . ', mail() return value: ' . $val . '.');
         
 
