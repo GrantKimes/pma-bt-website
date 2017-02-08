@@ -40,8 +40,8 @@
 					<h3 class=" panel-title">Place an Order for Singing Valentines</h3>
 				</div>
 				<div class="panel-body">
-					<p>We find the recipient during class and serenade them with the song you request, give them a rose and candy, and deliver any message you would like.</p> 
-					<p>Each order costs $10, and can be paid with cash, Venmo, or Paypal.</p> 
+					<p>We find the recipient during a class period and serenade them with a song, give them a rose and candy, and deliver any message you would like.</p> 
+					<p>Each order costs $10, and can be paid with cash, Venmo (@JordanCraftPMA), or Paypal (SinfoniaBanking@gmail.com).</p> 
 				</div>
 			</div>
 		</div>
