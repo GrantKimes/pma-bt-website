@@ -90,7 +90,7 @@ function submitOrder() {
 			error: function(response) {
 				console.log("Error with submission:");
 				console.log(response);
-				showError("Error processing submission.");
+				showError("Error processing submission, your session may have timed out. Try refreshing the page.");
 				$(this).prop('disabled', false);
 			}
 		});
