@@ -66,8 +66,8 @@
 				{{ csrf_field() }}
 
 			  <div class="form-group">
-			    <label for="recipent_name" class="col-md-3 col-sm-9 control-label">Recipient's name</label>
-			    <div class="col-md-6 col-sm-9">
+			    <label for="recipent_name" class="col-md-3 control-label">Recipient's name</label>
+			    <div class="col-md-6">
 			    	<input name="recipient_name" type="text" class="form-control"  placeholder="Friend's name">
 			    </div>
 			  </div>
