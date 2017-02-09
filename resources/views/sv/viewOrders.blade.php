@@ -103,9 +103,35 @@
 					<h3 class=" panel-title">Links</h3>
 				</div>
 				<div class="panel-body">
+					<h6>Doodles</h6>
+					<a class="btn btn-sm btn-default btn-vert-space" href="http://doodle.com/poll/nw9xmgyzmamcsugk" target="_blank">Tabling</a>
+					<a class="btn btn-sm btn-default btn-vert-space" href="http://doodle.com/poll/8vky5d2wkq2kynra" target="_blank">Soloists</a>
+					<a class="btn btn-sm btn-default btn-vert-space" href="http://doodle.com/poll/g6ptiggqfrgvyh8v" target="_blank">Tenor 1</a>
+					<a class="btn btn-sm btn-default btn-vert-space" href="http://doodle.com/poll/x9gw4vxq7grqxvz7" target="_blank">Tenor 2</a>
+					<a class="btn btn-sm btn-default btn-vert-space" href="http://doodle.com/poll/27s8iwkihpytm5hw" target="_blank">Baritone</a>
+					<a class="btn btn-sm btn-default btn-vert-space" href="http://doodle.com/poll/bw7vatdhbhawxmb6" target="_blank">Bass</a>
+
+					<hr>
+
+					<h6>Songs</h6>
+					<a class="btn btn-sm btn-default btn-vert-space" href="/songs/Starving.pdf" target="_blank">Starving (D)</a>
+					<a class="btn btn-sm btn-default btn-vert-space" href="/songs/Just the Way You Are.pdf" target="_blank">Just the Way You Are (Bb)</a>
+					<a class="btn btn-sm btn-default btn-vert-space" href="/songs/Sweet Caroline.pdf" target="_blank">Sweet Caroline (G)</a>
+					<a class="btn btn-sm btn-default btn-vert-space" href="/songs/Afternoon Delight.pdf" target="_blank">Afternoon Delight (F)</a>
+					<a class="btn btn-sm btn-default btn-vert-space" href="/songs/Isn't She Lovely.pdf" target="_blank">Isn't She Lovely (Bb/Gmin)</a>
+					<a class="btn btn-sm btn-default btn-vert-space" href="/songs/I'm Yours.pdf" target="_blank">I'm Yours (B)</a>
+					<!--<p>Starving</p>
+					<p>Just the Way You Are</p>
+					<p>Sweet Caroline</p>
+					<p>Afternoon Delight</p>
+					<p>Isn't She Lovely</p>
+					<p>I'm Yours</p>
+					
 					<p><a href="http://doodle.com/poll/nw9xmgyzmamcsugk" target="_blank">Doodle for tabling</a></p>
 					<p><a href="" target="_blank">Doodle for singing</a></p>
+					
 					<p><a>Link to each of the songs, and/or just list their starting pitches</a></p>
+					-->
 				</div>
 			</div>
 		</div>
