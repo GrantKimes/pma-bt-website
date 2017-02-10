@@ -54,16 +54,17 @@
 		</div>
 
 	</div>
+</div>
 
 
 
-	<div class="col-md-12">
+	{{--<div class="col-md-12">--}}
 		<table class="datatable display responsive" cellspacing="0" width="100%">
 			<thead>
 				<tr>
+					<th>Location</th>
 					<th>Recipient Name</th>
 					<th>Sender Name</th>
-					<th>Location</th>
 					<th>Sender Email</th>
 					<th>Song</th>
 					<th>Day</th>
@@ -77,9 +78,9 @@
 			<tbody>
 				@foreach ($orders as $order)
 				<tr>
+					<td>{{ $order->location }}</td>
 					<td>{{ $order->recipient_name }}</td>
 					<td>{{ $order->sender_name }}</td>
-					<td>{{ $order->location }}</td>
 					<td>{{ $order->sender_email }}</td>
 					<td>{{ $order->song_choice }}</td>
 					<td>{{ $order->day }}</td>
@@ -91,10 +92,11 @@
 				@endforeach
 			</tbody>
 		</table>
-	</div>
+
+	{{--</div>--}}
 
 
-
+<div class="container">
 	<hr/>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">

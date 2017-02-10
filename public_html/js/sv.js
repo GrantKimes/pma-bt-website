@@ -23,9 +23,9 @@ $(document).ready(function() {
 		order: [[8, 'desc']],
 		//responsive: true,
 		columns: [
+			{ name: "location" },
 			{ name: "recipient_name" },
 			{ name: "sender_name" },
-			{ name: "location" },
 			{ name: "sender_email", },
 			{ name: "song" },
 			{ name: "day" },
