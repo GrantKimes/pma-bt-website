@@ -37,6 +37,29 @@ class SVController extends Controller
     }
 
     // Edit
+    public function editOrders() {
+        $orders = Order::all();
+
+        foreach ($orders as $order) { // Capitalize each day, ex. Fri instead of fri
+            $order['day'] = ucfirst($order->day);
+        }
+        //$songCount = Order::
+        $timeslots = $this->getTimeslots();
+        return view('sv.editOrders', ['orders' => $orders, 'timeslots' => $timeslots] );
+    }
+
+    // public function storeModifiedOrder(HttpRequest $request) {
+    // 	$input = Request::all();
+
+    // 	$orderId = $input['order_id'];
+    // 	$order = Order::where('order_id', $orderId);
+    //  // If no order exists, create a new one 
+
+    // 	// Set fields on order, either all fields or just modified ones 
+    //  // Ignore timeslot limits on number of orders, since this is admin view
+
+    // 	$order->save();
+    // }
 
     // Request to store new order in database, sent as a POST from create page. 
     public function store(HttpRequest $request) {
@@ -97,6 +120,8 @@ class SVController extends Controller
         Log::debug("After sending mail");
         */
 
+
+        // TODO: make this a separate function
 
         // Send confirmation email. 
         $to = $order->sender_email;

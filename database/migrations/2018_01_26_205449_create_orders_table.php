@@ -19,11 +19,16 @@ class CreateOrdersTable extends Migration
             $table->string('recipient_name', 255);
             $table->string('sender_name', 255);
             $table->string('sender_email', 255);
-            $table->string('day', 255);
             $table->string('location', 255);            
-            $table->string('timeslot', 255);
-            $table->string('song_choice', 255);
             $table->string('comment', 500);
+
+            $table->integer('timeslot_id')->unsigned()->nullable();
+            $table->foreign('timeslot_id')->references('id')->on('timeslots')->onDelete('set null');
+
+            $table->integer('song_id')->unsigned()->nullable();
+            $table->foreign('song_id')->references('id')->on('songs')->onDelete('set null');
+
+            // $table->softDeletes();
 
             $table->timestamps();
         });
