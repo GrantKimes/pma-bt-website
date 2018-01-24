@@ -18,6 +18,9 @@ class OrderController extends Controller
     public function store(Request $request) {
     	$order = Order::create($request->all());
     	return response()->json($order, 201);
+
+    	// TODO: send confirmation email here
+    	// TODO: return failure if timeslot is full. Needs way to override that if coming from edit page 
     }
 
     public function update(Request $request, Order $order) {

@@ -3,7 +3,12 @@ var errMsg;
 var table;
 var daysDropdown;
 
+var allOrders = null;
+
 $(document).ready(function() {
+
+
+	getAllOrders();
 
 	errMsg = $('#error-message');
 	errMsg.removeClass('hidden').hide();
@@ -13,6 +18,7 @@ $(document).ready(function() {
 	});
 
 	submitOrder();
+	editOrders();
 
 
 	updateTimeslotOnDaySelect();
@@ -20,7 +26,7 @@ $(document).ready(function() {
 
 
 	var dt_settings = {
-		order: [[8, 'desc']],
+		order: [[9, 'desc']],
 		//responsive: true,
 		columns: [
 			{ name: "location" },
@@ -31,6 +37,7 @@ $(document).ready(function() {
 			{ name: "day" },
 			{ name: "timeslot" },
 			{ name: "comment" },
+			{ name: "edit" },
 			{ name: "order_id", visible: false },
 		]
 	};
@@ -44,6 +51,23 @@ $(document).ready(function() {
 
 
 });
+
+function getAllOrders() {
+	$.ajax({
+		type: 'GET',
+		url: '/api/orders',
+
+		success: function(response) {
+			console.log(response);
+			ordersLoaded();
+		},
+
+		error: function(response) {
+			console.error(response);
+			return; 
+		}
+	});
+}
 
 
 function submitOrder() {
@@ -98,11 +122,37 @@ function submitOrder() {
 	});
 }
 
+function editOrders() {
+	$('table a').on('click', function(event) {
+		console.log("Clicked wrench to edit order. Now pop up a modal and populate fields for this order.");
+		$('#exampleModal').modal();
+		var tr = $(this).closest('tr');
+		console.log(tr);
+		console.log("In click on wrench, ", table.row(tr).data());
+	});
+
+	$('table').on('click', 'tr', function() {
+		// var rowData = table.row(this).data();
+		// console.log(this);
+		// console.log("Row data: ", rowData);
+		// var form = $('#edit-form');
+		// form.find('input[name=recipient_name]').val(rowData[0]);
+		// form.find('input[name=sender_name]').val(rowData[1]);
+		// form.find('input[name=sender_email]').val(rowData[2]);
+		// form.find('select[name=day]').val(rowData[3].toLowerCase());
+		// form.find('select[name=timeslot]').val(rowData[4]);
+		// form.find('input[name=location]').val(rowData[5]);
+		// form.find('select[name=song_choice]').val(rowData[6]);
+		// form.find('textarea[name=comments]').val(rowData[7]);
+
+	});
+}
+
 function showError(errorMessage) {
 	if (errorMessage == '') {
 		errorMessage = 'Error submitting order. Your session may have timed out, try refreshing the page.'
 	}
-	errMsg.text(errorMessage).show('fast')
+	errMsg.text(errorMessage).show('fast');
 }
 
 

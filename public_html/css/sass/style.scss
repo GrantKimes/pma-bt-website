@@ -282,7 +282,12 @@ $active-bottom-color:  darken($red-dark, 10%);
 }
 */
 
-
+i.fa,
+a.link-button {
+  &:hover {
+    cursor: pointer;
+  }
+}
 
 
 

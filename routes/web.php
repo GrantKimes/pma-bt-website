@@ -22,18 +22,23 @@ Route::get('/concerts', function () {
     return view('concerts');
 })->name('concerts');
 
-Route::get('/sv', function () {
-    return view('sv');
-})->name('sv');
+Route::get('/singingValentines', function () {
+    return view('singingValentines');
+})->name('singingValentines');
 
 Route::get('/botb', function () {
     return view('botb');
 })->name('botb');
 
 
+Route::get('/sv', function() {
+	return view('sv.index');
+});
+
 // Controllers are app/Http/Controllers
-Route::get('/sv/order', 'SVController@create')->name('create_order')->middleware('auth');
+Route::get('/sv/order', 'SVController@createPage')->name('create_order')->middleware('auth');
 Route::get('/sv/view', 'SVController@viewOrders')->name('view_orders')->middleware('auth');
+Route::get('/sv/edit', 'SVController@editOrders')->name('edit_orders')->middleware('auth');
 Route::get('/sv/login', 'SVController@login')->name('sv_login');
 
 

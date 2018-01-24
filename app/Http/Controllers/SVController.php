@@ -15,22 +15,23 @@ use App\Mail\OrderReceived;
 class SVController extends Controller
 {
 	// Page for creating an order for a new singing valentine.
-    public function create() {
+    public function createPage() {
+    	return view('sv.createPage', ['order' => Order::find(1)]);
 
         // Pass timeslots structure from database for dropdown menu.
-        $timeslots = $this->getTimeslots();
+     //    $timeslots = $this->getTimeslots();
 
 
-    	return view('sv.create', ['timeslots' => $timeslots] );
+    	// return view('sv.create', ['timeslots' => $timeslots] );
     }
 
     // View existing orders.
     public function viewOrders() {
         $orders = Order::all();
 
-        foreach ($orders as $order) { // Capitalize each day, ex. Fri instead of fri
-            $order['day'] = ucfirst($order->day);
-        }
+        // foreach ($orders as $order) { // Capitalize each day, ex. Fri instead of fri
+        //     $order['day'] = ucfirst($order->day);
+        // }
         //$songCount = Order::
         $timeslots = $this->getTimeslots();
         return view('sv.viewOrders', ['orders' => $orders, 'timeslots' => $timeslots] );

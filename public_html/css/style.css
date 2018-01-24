@@ -196,5 +196,8 @@ img.media-object {
   height: 500px;
 }
 */
+i.fa:hover,
+a.link-button:hover {
+  cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */

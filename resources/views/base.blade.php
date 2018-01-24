@@ -70,7 +70,7 @@
 	      	<li class="@yield('home_tab')"><a href="{{ route('home') }}">Home</a></li>
 	      	<li class="@yield('about_tab')"><a href="{{ route('about') }}">About</a></li>
 	      	<!--<li class="@yield('concerts_tab')"><a href="{{ route('concerts') }}">Concerts</a></li>-->
-	      	<li class="@yield('sv_tab')"><a href="{{ route('sv') }}">Singing Valentines</a></li>
+	      	<li class="@yield('sv_tab')"><a href="{{ route('singingValentines') }}">Singing Valentines</a></li>
 			@if (Auth::check()) 
 	      	<li class="@yield('sv_order_tab')"><a href="{{ route('create_order') }}">Order</a></li>
 	      	<li class="@yield('sv_view_tab')"><a href="{{ route('view_orders') }}">View</a></li>			
