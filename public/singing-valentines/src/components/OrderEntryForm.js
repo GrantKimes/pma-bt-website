@@ -5,6 +5,8 @@ import TextInput from './TextInput';
 import DropdownInput from './DropdownInput';
 import ApiHelper from '../ApiHelper';
 
+// import Order from '../types/Order';
+
 export default class OrderEntryForm extends React.Component {
     constructor(props) {
         super(props);
@@ -17,8 +19,14 @@ export default class OrderEntryForm extends React.Component {
     }
 
     componentDidMount = () => {
-        ApiHelper.GetOrders().then(this.onOrdersReceived);
+        console.log(ApiHelper.GetOrderContainer().then(this.onOrderContainerLoaded));
+        // ApiHelper.GetOrders().then(this.onOrdersReceived); 
 
+    }
+
+    onOrderContainerLoaded(orderContainer) {
+        // TODO: Implement onOrdersReceived with orderContainer
+        console.log(orderContainer);
     }
 
     onOrdersReceived = (orders) => {
