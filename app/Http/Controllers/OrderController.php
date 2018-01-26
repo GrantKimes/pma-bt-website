@@ -4,11 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use App\Timeslot;
+use App\Song;
 
 class OrderController extends Controller
 {
     public function index() {
-    	return Order::with('timeslot')->with('song')->get();
+    	return [
+    		'orders' => Order::with('timeslot')->with('song')->get(),
+    		'timeslots' => Timeslot::all(),
+    		'songs' => Song::all(),
+    		'days' => Timeslot::select('day')->distinct()->get()
+    	];
     }
 
     public function show(Order $order) {

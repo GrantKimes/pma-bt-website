@@ -14,6 +14,10 @@ export default class Order {
         return new moment(timeslot.day, 'YYYY-MM-DD').format('ddd');
     }
 
+    static convertToDayLongString(timeslot) {
+        return new moment(timeslot.day, 'YYYY-MM-DD').format('dddd, MMMM D');
+    }
+
     static convertToTimeString(timeslot) {
         var start = moment(timeslot.start_time, "HH:mm:ss");
         var end = moment(timeslot.end_time, "HH:mm:ss");
@@ -29,10 +33,23 @@ export default class Order {
         newOrder.song = orderJson.song.title;
         newOrder.timeslot = orderJson.timeslot;
         newOrder.day = Order.convertToDayString(orderJson.timeslot);
+        newOrder.day_long = Order.convertToDayLongString(orderJson.timeslot);
         newOrder.time = Order.convertToTimeString(orderJson.timeslot);
         newOrder.comment = orderJson.comment;
         newOrder.id = orderJson.id;
         return newOrder;
+    }
+
+    static formStateToApiJson(formState) {
+        return {
+            recipient_name: formState.recipient_name,
+            sender_name: formState.sender_name,
+            sender_email: formState.sender_email,
+            timeslot_id: formState.time,
+            location: formState.location,
+            song_id: formState.song,
+            comment: formState.comment,
+        };
     }
 
 
@@ -48,6 +65,17 @@ export default class Order {
         'comment',
     ]
 
+    static orderFormFields = [
+        'recipient_name',
+        'sender_name',
+        'sender_email',
+        'day',
+        'time',
+        'location',
+        'song',
+        'comment',
+    ]
+
     static getReadableName(name) {
         return Order.readableNames[name];
     }
@@ -56,11 +84,27 @@ export default class Order {
         location: "Location",
         recipient_name: "Recipient's Name",
         sender_name: "Sender's Name",
-        sender_email: "Sender's email",
+        sender_email: "Sender's Email",
         song: "Song",
         day: "Day",
         time: "Timeslot",
         comment: "Comment",
+        id: "id"
+    }
+
+    static getPlaceholderValue(name) {
+        return Order.placeholderValues[name];
+    }
+
+    static placeholderValues =  {
+        location: "Building & room on campus, ex: Dooly 101",
+        recipient_name: "Friend's name",
+        sender_name: "Your name (will remain anonymous)",
+        sender_email: "Your email (for order receipt)",
+        song: "-- Choose a song --",
+        day: "-- Choose a day --",
+        time: "-- Choose a time slot --",
+        comment: "Optional",
         id: "id"
     }
 

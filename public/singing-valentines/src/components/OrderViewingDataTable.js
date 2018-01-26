@@ -19,7 +19,7 @@ export default class OrderViewingDataTable extends React.Component {
 
     componentDidMount = () => {
         $(this.refs.main).DataTable({
-            dom: '<"data-table-wrapper"iftlp>',
+            dom: '<"#data-table-wrapper"iftlp>',
             data: this.state.orderContainer.toDataTablesData(),
             columns: OrderContainer.dataTableColumnsConfig(),
             ordering: true
@@ -29,7 +29,7 @@ export default class OrderViewingDataTable extends React.Component {
     }
 
     componentWillUnmount(){
-       $('.data-table-wrapper')
+       $('#data-table-wrapper')
            .find('table')
            .DataTable()
            .destroy(true);
@@ -37,7 +37,7 @@ export default class OrderViewingDataTable extends React.Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         // Instead of modifying/rerendering the React component, just forward the data to DataTables to handle update.
-        const table = $('.data-table-wrapper')
+        const table = $('#data-table-wrapper')
             .find('table')
             .DataTable();
         table.clear();

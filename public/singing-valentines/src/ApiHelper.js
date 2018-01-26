@@ -1,4 +1,5 @@
 import OrderContainer from './types/OrderContainer';
+import Order from './types/Order';
 
 export default class ApiHelper {
 	static baseUrl = "http://pmalocal/api";
@@ -36,5 +37,15 @@ export default class ApiHelper {
 				return Promise.reject(Error(error.message));
 			});
 
+	}
+
+	static SubmitOrder(orderFormState) {
+		// console.log(orderFormState);
+		var orderJson = Order.formStateToApiJson(orderFormState);
+		// can't do this, need name mapping 
+		// Order.orderFormFields.forEach(fieldName => {
+		// 	order[fieldName] = orderFormState[fieldName];
+		// });
+		console.log(orderJson);
 	}
 }

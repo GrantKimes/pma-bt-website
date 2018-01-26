@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->string('location', 255);            
             $table->string('comment', 500);
 
+            // TODO: should these be nullable, should deleting cascade, should there be default value
             $table->integer('timeslot_id')->unsigned()->nullable();
             $table->foreign('timeslot_id')->references('id')->on('timeslots')->onDelete('set null');
 

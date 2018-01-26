@@ -12,13 +12,13 @@ export default class TextInput extends React.Component {
                     className="col-md-3 control-label">{Order.getReadableName(this.props.formName)}
                 </label>
                 <div className="col-md-6">
-                    <input 
+                    <textarea 
                         name={this.props.formName} 
                         value={this.props.value} 
                         placeholder={Order.getPlaceholderValue(this.props.formName)}
                         onChange={this.props.onChange}
-                        type="text" 
                         className="form-control" 
+                        rows="3"
                     />
                 </div>
             </div>
