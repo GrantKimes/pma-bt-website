@@ -5,6 +5,8 @@ import TextInput from './TextInput';
 import TextAreaInput from './TextAreaInput';
 import DropdownInput from './DropdownInput';
 import ApiHelper from '../ApiHelper';
+import ErrorIndicator from './ErrorIndicator';
+import SubmittedIndicator from './SubmittedIndicator';
 
 import OrderContainer from '../types/OrderContainer';
 import Order from '../types/Order';
@@ -26,6 +28,7 @@ export default class OrderEntryForm extends React.Component {
             songsDropdownValues: [],
             orderContainer: {},
             error: "",
+            successMessage: "",
         }
     }
 
@@ -57,14 +60,30 @@ export default class OrderEntryForm extends React.Component {
 
     submitOrder = () => {
         var allFieldsFilledOut = Order.orderFormFields.every(formName => {
-            return this.state[formName] !== "" || formName === 'comment';
+            // return this.state[formName] !== "" || formName === 'comment';
+            // TODO: Make comment field optional
+            return this.state[formName] !== "";
         });
         console.log("fields filled out: " + allFieldsFilledOut);
         if (!allFieldsFilledOut) {
-            this.state.error = "You must fill out all fields";
-            // return;
+            this.setState({error: "You must fill out all fields."});
+            return;
         }
-        ApiHelper.SubmitOrder(this.state);
+        else {
+            this.setState({error: ""});
+        }
+        ApiHelper.SubmitOrder(this.state).then(this.onOrderSubmitted).catch(this.onOrderFailed);
+    }
+
+    onOrderSubmitted = (response) => {
+        console.log("Order submitted:");
+        console.log(response);
+        this.setState({successMessage: "Order submitted!"});
+    }
+
+    onOrderFailed = (response) => {
+        console.log("Order failed:");
+        console.error(response);
     }
 
     render() {
@@ -123,6 +142,14 @@ export default class OrderEntryForm extends React.Component {
                             value={this.state.comment}
                             onChange={this.textInputChanged}>
                         </TextAreaInput>
+
+                        <ErrorIndicator
+                            errorMessage={this.state.error}>
+                        </ErrorIndicator>
+
+                        <SubmittedIndicator
+                            successMessage={this.state.successMessage}>
+                        </SubmittedIndicator>
 
 
                         <div className="col-md-6 col-md-offset-3">

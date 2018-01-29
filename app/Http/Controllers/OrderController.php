@@ -7,6 +7,9 @@ use App\Order;
 use App\Timeslot;
 use App\Song;
 
+use Illuminate\Support\Facades\Log;
+
+
 class OrderController extends Controller
 {
     public function index() {
@@ -23,7 +26,11 @@ class OrderController extends Controller
     }
 
     public function store(Request $request) {
-    	$order = Order::create($request->all());
+    	Log::info("------------------------ Request");
+    	Log::info($request);
+    	$json = $request->json()->all();
+    	Log::info($json);
+    	$order = Order::create($json);
     	return response()->json($order, 201);
 
     	// TODO: send confirmation email here

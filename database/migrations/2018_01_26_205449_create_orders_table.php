@@ -1,4 +1,4 @@
-<?php
+e<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('sender_name', 255);
             $table->string('sender_email', 255);
             $table->string('location', 255);            
-            $table->string('comment', 500);
+            $table->string('comment', 500)->default('');
 
             // TODO: should these be nullable, should deleting cascade, should there be default value
             $table->integer('timeslot_id')->unsigned()->nullable();

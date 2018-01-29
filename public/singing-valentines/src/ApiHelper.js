@@ -46,6 +46,31 @@ export default class ApiHelper {
 		// Order.orderFormFields.forEach(fieldName => {
 		// 	order[fieldName] = orderFormState[fieldName];
 		// });
+		console.log("Submitting order:");
 		console.log(orderJson);
+		console.log(JSON.stringify(orderJson));
+
+		return fetch(this.baseUrl+"/orders", {
+			method: 'POST',
+			body: JSON.stringify(orderJson),
+			headers: {
+			    'Accept': 'application/json',
+			    'Content-Type': 'application/json',
+			 },
+			// mode: 'no-cors',
+		})
+			.then(function(response) {
+				if (response.ok) {
+					var json = response.json();
+					return json;
+				}
+				console.log(response);
+				return Promise.reject(Error(response.status));
+
+			})
+			.catch(function(error) {
+				console.error(error);
+				return Promise.reject(Error(error.message));
+			});
 	}
 }

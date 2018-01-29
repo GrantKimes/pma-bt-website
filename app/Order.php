@@ -4,9 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 // use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Events\OrderSaving;
 
 class Order extends Model
 {
+	protected $attributes = [
+		'comment' => '',
+	];
+
     // Attributes which are mass assignable
     protected $fillable = [
     	'recipient_name',
@@ -28,4 +33,8 @@ class Order extends Model
 	// TODO: Use soft deletion
 	// use SoftDeletes;
 	// protected $dates = ['deleted_at'];
+
+	protected $dispatchesEvents = [
+		'saving' => OrderSaving::class
+	];
 }

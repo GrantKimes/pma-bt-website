@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('orders', 'OrderController@index')->middleware('cors');
 Route::get('orders/{order}', 'OrderController@show');
-Route::post('orders', 'OrderController@store');
+Route::post('orders', 'OrderController@store')->middleware('cors');
 Route::post('orders/{order}/update', 'OrderController@update');
 
 Route::get('songs', 'SongController@index');
