@@ -27,8 +27,9 @@ export default class OrderEntryForm extends React.Component {
             timesDropdownValues: [],
             songsDropdownValues: [],
             orderContainer: {},
-            error: "",
+            errorMessage: "",
             successMessage: "",
+            submitButtonDisabled: false,
         }
     }
 
@@ -66,24 +67,27 @@ export default class OrderEntryForm extends React.Component {
         });
         console.log("fields filled out: " + allFieldsFilledOut);
         if (!allFieldsFilledOut) {
-            this.setState({error: "You must fill out all fields."});
+            this.setState({errorMessage: "You must fill out all fields."});
             return;
         }
         else {
-            this.setState({error: ""});
+            this.setState({errorMessage: ""});
         }
+        this.setState({submitButtonDisabled: true});
         ApiHelper.SubmitOrder(this.state).then(this.onOrderSubmitted).catch(this.onOrderFailed);
     }
 
     onOrderSubmitted = (response) => {
         console.log("Order submitted:");
         console.log(response);
-        this.setState({successMessage: "Order submitted!"});
+        this.setState({successMessage: "Your order was successfully submitted! Refresh the page to make a new order."});
     }
 
     onOrderFailed = (response) => {
         console.log("Order failed:");
         console.error(response);
+        this.setState({errorMessage: "Failed to submit order, you may need to refresh the page."});
+        this.setState({submitButtonDisabled: false});
     }
 
     render() {
@@ -144,17 +148,17 @@ export default class OrderEntryForm extends React.Component {
                         </TextAreaInput>
 
                         <ErrorIndicator
-                            errorMessage={this.state.error}>
+                            errorMessage={this.state.errorMessage}>
                         </ErrorIndicator>
 
                         <SubmittedIndicator
                             successMessage={this.state.successMessage}>
                         </SubmittedIndicator>
 
-
                         <div className="col-md-6 col-md-offset-3">
                             <button 
                                 onClick={this.submitOrder}
+                                disabled={this.state.submitButtonDisabled}
                                 type="button" 
                                 className="btn btn-block btn-primary">
                                 <span>Submit</span>
