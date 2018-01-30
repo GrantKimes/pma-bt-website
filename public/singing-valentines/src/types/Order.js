@@ -31,6 +31,7 @@ export default class Order {
         newOrder.sender_name = orderJson.sender_name;
         newOrder.sender_email = orderJson.sender_email;
         newOrder.song = orderJson.song.title;
+        newOrder.song_id = orderJson.song.id;
         newOrder.timeslot = orderJson.timeslot;
         newOrder.day = Order.convertToDayString(orderJson.timeslot);
         newOrder.day_long = Order.convertToDayLongString(orderJson.timeslot);

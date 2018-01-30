@@ -39,4 +39,24 @@ export default class ApiHelper {
 				});
 		});
 	}
+
+	static UpdateOrder(orderFormState) {
+		var orderJson = Order.formStateToApiJson(orderFormState);
+		console.log("Updating order:");
+		console.log(orderJson);
+
+		return new Promise( (resolve, reject) => {
+			request
+				.post(this.baseUrl+"/orders/"+orderFormState.id+"/update")
+				.send(orderJson)
+				.set('Accept', 'application/json')
+				.set('Content-Type', 'application/json')
+				.then( (res) => {
+					resolve(res.body); 
+				})
+				.catch( (err) => {
+					reject(err);
+				});
+		});
+	}
 }

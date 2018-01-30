@@ -18,6 +18,20 @@ export default class OrderContainer {
         return result;
     }
 
+    toEditDataTablesData() {
+        var result = this.toDataTablesData();
+        result.forEach((orderRow, index) => {
+            orderRow['edit'] = "<button class='btn btn-primary edit-button' data-order-id="+orderRow.id+" data-toggle='modal' data-target='#exampleModal'>Edit</button>";
+            // orderRow['edit'] = "<button class='btn btn-primary edit-button' data-order-id="+orderRow.id+">Edit</button>";
+        });
+        return result;
+    }
+
+    getOrderById(orderId) {
+        return this.orders.find(order => order.id === orderId);
+        // return this.orders.find(order => { console.log(order.id); console.log(orderId); return order.id === Number(orderId);});
+    }
+
     getDaysDropdownValues() {
         return this.days.map(day => [day, new moment(day, 'YYYY-MM-DD').format('dddd, MMMM D')] );
     }
@@ -44,6 +58,13 @@ export default class OrderContainer {
 
     static dataTableColumnsConfig() { 
         return Order.viewTableOrdering.map(value => { return {title: Order.getReadableName(value), data: value} });
+    }
+
+    static editDataTableColumnsConfig() { 
+        var columns = OrderContainer.dataTableColumnsConfig();
+        console.log(columns);
+        columns.push({title: "Edit", data: "edit"});
+        return columns;
     }
 
 
