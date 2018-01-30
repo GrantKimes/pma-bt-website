@@ -35,17 +35,6 @@ export default class OrderEditForm extends React.Component {
         }
     }
 
-    componentDidMount = () => {
-        // ApiHelper.GetOrderContainer().then(this.onOrderContainerLoaded);
-        // this.setState({daysDropdownValues: this.props.orderContainer.getDaysDropdownValues()});
-        // this.setState({songsDropdownValues: this.props.orderContainer.getSongsDropdownValues()});
-        // this.setState({orderContainer: this.props.orderContainer});
-    }
-
-    // onOrderContainerLoaded = (orderContainer) => {
-    //     console.log(orderContainer);
-    // }
-
     inputChanged = (event) => {
         var inputName = event.target.name;
         var inputValue = event.target.value;
