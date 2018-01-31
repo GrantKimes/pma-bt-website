@@ -74,6 +74,7 @@
 			@if (Auth::check()) 
 	      	<li class="@yield('sv_order_tab')"><a href="{{ route('create_order') }}">Order</a></li>
 	      	<li class="@yield('sv_view_tab')"><a href="{{ route('view_orders') }}">View</a></li>			
+	      	<li class="@yield('sv_edit_tab')"><a href="{{ route('edit_orders') }}">Edit</a></li>			
 			@endif
 	      	<li class="@yield('botb_tab')"><a href="{{ route('botb') }}">Battle of the Bands</a></li>
 	      	<!--<li><a>Gallery</a></li>-->

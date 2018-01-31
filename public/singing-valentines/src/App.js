@@ -1,23 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {hashHistory} from 'react-router';
 
-import OrderEntryForm from './components/OrderEntryForm';
-import OrderViewingTable from './components/OrderViewingTable';
-import OrderViewingDataTable from './components/OrderViewingDataTable';
+import OrderEntryPage from './components/OrderEntryPage';
+// import OrderViewingTable from './components/OrderViewingTable';
+import OrderViewingPage from './components/OrderViewingPage';
 import OrderEditingTable from './components/OrderEditingTable';
 
+import HomePage from './components/HomePage';
 
-class App extends Component {
+const CURRENT_PAGE = window.CURRENT_PAGE || null;
+
+class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <OrderEntryForm></OrderEntryForm>
-        {/*<OrderViewingTable></OrderViewingTable>*/}
-        {/*<OrderViewingDataTable></OrderViewingDataTable>*/}
-        <OrderEditingTable></OrderEditingTable>
-      </div>
+        <BrowserRouter basename="/sv">
+            <Switch>
+                <Route path="/order" component={OrderEntryPage} />
+                <Route path="/view" component={OrderViewingPage} />
+                <Route path="/edit" component={OrderEditingTable} />
+                <Route path="/" component={HomePage} />
+            </Switch>
+        </BrowserRouter>
     );
   }
+            // <div className="container">
+            //     <OrderEntryForm></OrderEntryForm>
+            // </div>
+            // <div className="container">
+            //     <OrderEditingTable></OrderEditingTable>
+            // </div>
 }
 
 export default App;

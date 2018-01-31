@@ -7,7 +7,11 @@ import ApiHelper from '../ApiHelper';
 import OrderContainer from '../types/OrderContainer';
 
 const $ = require('jquery');
-$.DataTable = require('datatables.net');
+// $.DataTable = require('datatables.net');
+
+require('datatables.net-bs');
+require('datatables.net-responsive-bs');
+// require('datatables.net-responsive');
 
 export default class OrderViewingDataTable extends React.Component {
     constructor(props) {
@@ -22,8 +26,11 @@ export default class OrderViewingDataTable extends React.Component {
             dom: '<"#data-table-wrapper"iftlp>',
             data: this.state.orderContainer.toDataTablesData(),
             columns: OrderContainer.dataTableColumnsConfig(),
-            ordering: true
+            ordering: true,
+            responsive: true,
         });
+
+        // $('#data-table-wrapper table').addClass('responsive').addClass('display').addClass('datatable');
 
         ApiHelper.GetOrderContainer().then(this.onOrderContainerLoaded);
     }
@@ -55,14 +62,12 @@ export default class OrderViewingDataTable extends React.Component {
     // Everythin inside the table element is not touched by React, just by DataTables
     render() {
         return (
-            <div className="row">
-                <div className="col-md-12">
-                    <h3>View Orders</h3>
-                </div>
-                <div className="col-md-12">
-                    <table ref="main"></table>
-                </div>
-            </div>
+            <table 
+                ref="main" 
+                className="display table table-striped table-bordered"
+                cellSpacing="0" 
+                width="100%">
+            </table>
         );
     }
 }

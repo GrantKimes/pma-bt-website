@@ -26,8 +26,7 @@ class OrderController extends Controller
     }
 
     public function store(Request $request) {
-    	Log::info("------------------------ Request");
-    	Log::info($request);
+    	Log::info("------------------------ store Request");
     	$json = $request->json()->all();
     	Log::info($json);
     	$order = Order::create($json);
