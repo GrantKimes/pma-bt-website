@@ -1,1 +1,0 @@
-{"virtualbox":{"/home/vagrant/pma-bt-website":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/pma-bt-website","hostpath":"/Users/grantkimes/Programming/PMASiteLaravel/PMA_BT_Website","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/grantkimes/Programming/PMASiteLaravel/PMA_BT_Website","disabled":false,"__vagrantfile":true}}}
