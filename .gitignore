@@ -6,6 +6,7 @@
 #Homestead.json
 #Homestead.yaml
 .env
+.vagrant/
 
 .DS_Store
 *.sass-cache/
