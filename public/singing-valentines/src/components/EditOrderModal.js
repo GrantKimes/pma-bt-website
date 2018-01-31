@@ -3,9 +3,6 @@ import React from 'react';
 import OrderEditForm from './OrderEditForm';
 
 export default class EditOrderModal extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         console.log(this.props.orderBeingEdited);
@@ -14,7 +11,7 @@ export default class EditOrderModal extends React.Component {
         }
 
         return (
-            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="edit-order-modal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog" role="document">
                 <div className="modal-content">
                   <div className="modal-header">

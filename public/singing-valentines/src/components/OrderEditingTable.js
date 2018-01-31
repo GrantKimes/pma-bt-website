@@ -8,7 +8,8 @@ import OrderContainer from '../types/OrderContainer';
 import EditOrderModal from './EditOrderModal';
 
 const $ = require('jquery');
-$.DataTable = require('datatables.net');
+require('datatables.net-bs');
+require('datatables.net-responsive-bs');
 
 export default class OrderEditingDataTable extends React.Component {
     constructor(props) {
@@ -24,7 +25,8 @@ export default class OrderEditingDataTable extends React.Component {
             dom: '<"#data-table-wrapper"iftlp>',
             data: this.state.orderContainer.toEditDataTablesData(),
             columns: OrderContainer.editDataTableColumnsConfig(),
-            ordering: true
+            ordering: true,
+            responsive: true,
         });
 
 
@@ -46,6 +48,8 @@ export default class OrderEditingDataTable extends React.Component {
         table.clear();
         table.rows.add(nextState.orderContainer.toEditDataTablesData());
         table.draw();
+
+        console.log("In shouldComponentUpdate of OrderEditingTable, setting listeners for edit button click");
 
         let onEditOrderClicked = this.onEditOrderClicked.bind(this);
         $('.edit-button').on('click', function(event) {
@@ -73,13 +77,8 @@ export default class OrderEditingDataTable extends React.Component {
     // Everythin inside the table element is not touched by React, just by DataTables
     render() {
         return (
-            <div className="row">
-                <div className="col-md-12">
-                    <h3>Edit Orders</h3>
-                </div>
-                <div className="col-md-12">
-                    <table ref="main"></table>
-                </div>
+            <div>
+                <table ref="main" className="table table-striped table-bordered"></table>
 
                 <EditOrderModal
                     orderBeingEdited={this.state.orderBeingEdited}

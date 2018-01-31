@@ -21,7 +21,7 @@ export default class OrderContainer {
     toEditDataTablesData() {
         var result = this.toDataTablesData();
         result.forEach((orderRow, index) => {
-            orderRow['edit'] = "<button class='btn btn-primary edit-button' data-order-id="+orderRow.id+" data-toggle='modal' data-target='#exampleModal'>Edit</button>";
+            orderRow['edit'] = "<button class='btn btn-primary edit-button' data-order-id="+orderRow.id+" data-toggle='modal' data-target='#edit-order-modal'>Edit</button>";
             // orderRow['edit'] = "<button class='btn btn-primary edit-button' data-order-id="+orderRow.id+">Edit</button>";
         });
         return result;
@@ -63,7 +63,7 @@ export default class OrderContainer {
     static editDataTableColumnsConfig() { 
         var columns = OrderContainer.dataTableColumnsConfig();
         console.log(columns);
-        columns.push({title: "Edit", data: "edit"});
+        columns.unshift({title: "Edit", data: "edit"});
         return columns;
     }
 
