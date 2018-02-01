@@ -22,6 +22,8 @@ export default class OrderEditingPage extends React.Component {
         	<div>
 	            <OrderViewingDataTable
 	            	isEditing={true}
+	            	filterDay=""
+	            	filterTime=""
 	            	orderContainer={this.state.orderContainer}>
 	            </OrderViewingDataTable>
             </div>
