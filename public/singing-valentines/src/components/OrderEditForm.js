@@ -40,6 +40,7 @@ export default class OrderEditForm extends React.Component {
         var inputValue = event.target.value;
         this.setState({[inputName]: inputValue});
         if (inputName === 'day') {
+            this.setState({time: ""});
             this.setState({timesDropdownValues: this.state.orderContainer.getTimesDropdownValues(inputValue)});
         }
     }

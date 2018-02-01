@@ -29,8 +29,17 @@ class OrderController extends Controller
     	Log::info("------------------------ store Request");
     	$json = $request->json()->all();
     	Log::info($json);
-    	$order = Order::create($json);
-    	return response()->json($order, 201);
+
+    	$timeslot = Timeslot::find($json['timeslot_id']);
+    	if ($timeslot->orders()->count() >= $timeslot->num_available_slots) {
+    		Log::info("Timeslot ".$timeslot->id." is full, rejecting order");
+    		$response['error'] = "timeslot full";
+    		return response()->json($response, 200);
+    	}
+    	else {
+	    	$order = Order::create($json);
+	    	return response()->json($order, 201);
+    	}
 
     	// TODO: send confirmation email here
     	// TODO: return failure if timeslot is full. Needs way to override that if coming from edit page 

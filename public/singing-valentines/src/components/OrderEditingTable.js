@@ -40,7 +40,7 @@ export default class OrderEditingDataTable extends React.Component {
            .destroy(true);
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate = (nextProps, nextState) => {
         // Instead of modifying/rerendering the React component, just forward the data to DataTables to handle update.
         const table = $('#data-table-wrapper')
             .find('table')
@@ -57,10 +57,10 @@ export default class OrderEditingDataTable extends React.Component {
             onEditOrderClicked(Number(event.target.dataset.orderId));
         });
 
-        return true;
+        return false;
     }
 
-    onEditOrderClicked(orderId) {
+    onEditOrderClicked = (orderId) => {
         var order = this.state.orderContainer.getOrderById(orderId);
         console.log(order);
         this.setState({orderBeingEdited: order});

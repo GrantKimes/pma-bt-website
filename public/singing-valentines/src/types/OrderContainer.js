@@ -10,38 +10,78 @@ export default class OrderContainer {
         this.timeslots = [];
     }
 
-    toDataTablesData() {
+    toDataTablesData(isEditing) {
         var result = [];
         this.orders.forEach((order, index) => {
-            result.push(order.getKeyValueWithData());
-        });
-        return result;
-    }
-
-    toEditDataTablesData() {
-        var result = this.toDataTablesData();
-        result.forEach((orderRow, index) => {
-            orderRow['edit'] = "<button class='btn btn-primary edit-button' data-order-id="+orderRow.id+" data-toggle='modal' data-target='#edit-order-modal'>Edit</button>";
-            // orderRow['edit'] = "<button class='btn btn-primary edit-button' data-order-id="+orderRow.id+">Edit</button>";
+            var orderRow = order.getKeyValueWithData();
+            if (isEditing) {
+                orderRow['edit'] = "<button class='btn btn-primary edit-button' data-order-id="+orderRow.id+" data-toggle='modal' data-target='#edit-order-modal'>Edit</button>";
+            }
+            result.push(orderRow);
         });
         return result;
     }
 
     getOrderById(orderId) {
         return this.orders.find(order => order.id === orderId);
-        // return this.orders.find(order => { console.log(order.id); console.log(orderId); return order.id === Number(orderId);});
     }
 
     getDaysDropdownValues() {
-        return this.days.map(day => [day, new moment(day, 'YYYY-MM-DD').format('dddd, MMMM D')] );
+        return this.days.map(day => {
+            return {
+                value: day, 
+                readable: new moment(day, 'YYYY-MM-DD').format('dddd, MMMM D'),
+                disabled: false
+            };
+        });
     }
 
     getSongsDropdownValues() {
-        return this.songs.map(song => [song.id, song.title]);
+        return this.songs.map(song => {
+            return {
+                value: song.id, 
+                readable: song.title,
+                disabled: false
+            };
+        });
     }
 
-    getTimesDropdownValues(selectedDay) {
-        return this.timeslots.filter(timeslot => timeslot.day === selectedDay).map(timeslot => [timeslot.id, Order.convertToTimeString(timeslot)]);
+    getTimesDropdownValues(selectedDay, includeNumberOfOrders) {
+        return this.timeslots.filter(timeslot => timeslot.day === selectedDay).map(timeslot => {
+            var dropdownValue = Order.convertToTimeString(timeslot);
+            if (includeNumberOfOrders) {
+                dropdownValue += " ("+timeslot.num_filled_slots+"/"+timeslot.num_available_slots+")";
+            }
+            var isSlotFull = timeslot.num_filled_slots >= timeslot.num_available_slots;
+            return {
+                value: timeslot.id, 
+                readable: dropdownValue,
+                disabled: isSlotFull
+            };
+        });
+    }
+
+    getDataTablesColumnsConfig(isEditing) {
+        var columnsConfig = Order.viewTableOrdering.map(columnName => { return {title: Order.getReadableName(columnName), data: columnName, name: columnName} });
+        if (isEditing) {
+            columnsConfig.unshift({title: "Edit", data: "edit", name: "edit"});
+        }
+        return columnsConfig;
+    }
+
+    dayToDTSearchFormat(filterDay) {
+        if (filterDay === "") {
+            return "";
+        }
+        return Order.convertToAbbrevDayString(filterDay);
+    }
+
+    timeToDTSearchFormat(filterTime) {
+        if (filterTime === "") {
+            return "";
+        }
+        var timeslot = this.timeslots.find(timeslot => timeslot.id == filterTime);
+        return Order.convertToTimeString(timeslot);
     }
 
     static parseFromJson(ordersJson) {
@@ -55,18 +95,5 @@ export default class OrderContainer {
         newContainer.songs = ordersJson.songs;
         return newContainer;
     }
-
-    static dataTableColumnsConfig() { 
-        return Order.viewTableOrdering.map(value => { return {title: Order.getReadableName(value), data: value} });
-    }
-
-    static editDataTableColumnsConfig() { 
-        var columns = OrderContainer.dataTableColumnsConfig();
-        console.log(columns);
-        columns.unshift({title: "Edit", data: "edit"});
-        return columns;
-    }
-
-
 
 }

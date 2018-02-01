@@ -1,12 +1,30 @@
 import React from 'react';
 
-import OrderEditingTable from './OrderEditingTable';
+import OrderViewingDataTable from './OrderViewingDataTable';
+import ApiHelper from '../ApiHelper';
+import OrderContainer from '../types/OrderContainer';
 
 export default class OrderEditingPage extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            orderContainer: new OrderContainer(),
+        }
+    }
+
+    componentDidMount() {
+        ApiHelper.GetOrderContainer().then(orderContainer => this.setState({orderContainer: orderContainer}));
+    }
+
     render() {
         return (
-            <OrderEditingTable></OrderEditingTable>
+        	<div>
+	            <OrderViewingDataTable
+	            	isEditing={true}
+	            	orderContainer={this.state.orderContainer}>
+	            </OrderViewingDataTable>
+            </div>
         );
     }
 }

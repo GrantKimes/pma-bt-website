@@ -10,12 +10,12 @@ export default class Order {
         return result;
     }
 
-    static convertToDayString(timeslot) {
-        return new moment(timeslot.day, 'YYYY-MM-DD').format('ddd');
+    static convertToAbbrevDayString(day) {
+        return new moment(day, 'YYYY-MM-DD').format('ddd');
     }
 
-    static convertToDayLongString(timeslot) {
-        return new moment(timeslot.day, 'YYYY-MM-DD').format('dddd, MMMM D');
+    static convertToFullDayString(day) {
+        return new moment(day, 'YYYY-MM-DD').format('dddd, MMMM D');
     }
 
     static convertToTimeString(timeslot) {
@@ -33,8 +33,8 @@ export default class Order {
         newOrder.song = orderJson.song.title;
         newOrder.song_id = orderJson.song.id;
         newOrder.timeslot = orderJson.timeslot;
-        newOrder.day = Order.convertToDayString(orderJson.timeslot);
-        newOrder.day_long = Order.convertToDayLongString(orderJson.timeslot);
+        newOrder.day = Order.convertToAbbrevDayString(orderJson.timeslot.day);
+        newOrder.day_long = Order.convertToFullDayString(orderJson.timeslot.day);
         newOrder.time = Order.convertToTimeString(orderJson.timeslot);
         newOrder.comment = orderJson.comment;
         newOrder.id = orderJson.id;

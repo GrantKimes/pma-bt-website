@@ -7,8 +7,11 @@ export default class DropdownInput extends React.Component {
 
     render() {
         var dropdownOptionFields = this.props.dropdownValues.map(value => <option 
-                                                                                key={this.props.formName+'_'+value[0]} 
-                                                                                value={value[0]}>{value[1]}
+                                                                                key={this.props.formName+'_'+value.value} 
+                                                                                value={value.value}
+                                                                                disabled={value.disabled}
+                                                                            >
+                                                                                {value.readable}
                                                                             </option>);
         if (dropdownOptionFields.length === 0 && this.props.formName === 'time') {
             dropdownOptionFields = <option value="" disabled>Select a day first</option>;

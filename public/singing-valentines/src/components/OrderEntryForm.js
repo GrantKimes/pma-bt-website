@@ -55,6 +55,7 @@ export default class OrderEntryForm extends React.Component {
         var inputValue = event.target.value;
         this.setState({[inputName]: inputValue});
         if (inputName === 'day') {
+            this.setState({time: ""});
             this.setState({timesDropdownValues: this.state.orderContainer.getTimesDropdownValues(inputValue)});
         }
     }
@@ -80,13 +81,18 @@ export default class OrderEntryForm extends React.Component {
     onOrderSubmitted = (response) => {
         console.log("Order submitted:");
         console.log(response);
+        if (response.error == 'timeslot full') {
+            this.setState({errorMessage: "Failed to submit order, that timeslot is now full. Either choose a different timeslot, or refresh the page to update."});
+            this.setState({submitButtonDisabled: false});
+            return;
+        }
         this.setState({successMessage: "Your order was successfully submitted! Refresh the page to make a new order."});
     }
 
     onOrderFailed = (response) => {
         console.log("Order failed:");
         console.error(response);
-        this.setState({errorMessage: "Failed to submit order, you may need to refresh the page."});
+        this.setState({errorMessage: "Failed to submit order, your session may have expired. Try refreshing the page."});
         this.setState({submitButtonDisabled: false});
     }
 
