@@ -4,13 +4,13 @@ import Order from './types/Order';
 import request from 'superagent';
 
 export default class ApiHelper {
-	// static baseUrl = "http://pmalocal/api";
 	static baseUrl = "/api";
 
 	static GetOrderContainer() {
+		console.log("ApiHelper base url: " + ApiHelper.baseUrl);
 		return new Promise( (resolve, reject) => {
 			request
-				.get(this.baseUrl+"/orders")
+				.get(ApiHelper.baseUrl+"/orders")
 				.set('Accept', 'application/json')
 				.then( (res) => {
 					resolve(OrderContainer.parseFromJson(res.body)); 
@@ -28,7 +28,7 @@ export default class ApiHelper {
 
 		return new Promise( (resolve, reject) => {
 			request
-				.post(this.baseUrl+"/orders")
+				.post(ApiHelper.baseUrl+"/orders")
 				.send(orderJson)
 				.set('Accept', 'application/json')
 				.set('Content-Type', 'application/json')
@@ -48,7 +48,7 @@ export default class ApiHelper {
 
 		return new Promise( (resolve, reject) => {
 			request
-				.post(this.baseUrl+"/orders/"+orderFormState.id+"/update")
+				.post(ApiHelper.baseUrl+"/orders/"+orderFormState.id+"/update")
 				.send(orderJson)
 				.set('Accept', 'application/json')
 				.set('Content-Type', 'application/json')
@@ -60,4 +60,8 @@ export default class ApiHelper {
 				});
 		});
 	}
+}
+
+if (process.env.NODE_ENV === "development") {
+	ApiHelper.baseUrl = "http://pmalocal/api";
 }
