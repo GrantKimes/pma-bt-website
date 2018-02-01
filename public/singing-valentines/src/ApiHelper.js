@@ -4,7 +4,8 @@ import Order from './types/Order';
 import request from 'superagent';
 
 export default class ApiHelper {
-	static baseUrl = "http://pmalocal/api";
+	// static baseUrl = "http://pmalocal/api";
+	static baseUrl = "/api";
 
 	static GetOrderContainer() {
 		return new Promise( (resolve, reject) => {
