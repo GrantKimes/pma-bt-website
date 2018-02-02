@@ -2,6 +2,7 @@ import React from 'react';
 
 import OrderViewingDataTable from './OrderViewingDataTable';
 import OrderEntryForm from './OrderEntryForm';
+import DayAndTimeslotFilter from './DayAndTimeslotFilter';
 import ApiHelper from '../ApiHelper';
 import OrderContainer from '../types/OrderContainer';
 
@@ -11,10 +12,11 @@ export default class OrderEditingPage extends React.Component {
         super(props);
         this.state = {
             orderContainer: new OrderContainer(),
+            filterDay: "",
+            filterTime: "",
             orderBeingEdited: null,
             isEditingExistingOrder: false,
             isFormHidden: true,
-            // buttonText: "Create New Order",
         }
     }
 
@@ -29,6 +31,11 @@ export default class OrderEditingPage extends React.Component {
             isEditingExistingOrder: true,
             isFormHidden: false,
         });
+    }
+
+    onFilter = (day, time) => {
+        this.setState({filterDay: day});
+        this.setState({filterTime: time});
     }
 
     getButtonText() {
@@ -75,12 +82,20 @@ export default class OrderEditingPage extends React.Component {
                         >
                             {this.getButtonText()}
                         </button>
+                        <br />
                     </div>
                 </div>
+
+                <DayAndTimeslotFilter
+                    daysDropdownValues={this.state.orderContainer.getDaysDropdownValues()}
+                    onChange={this.onFilter}
+                    orderContainer={this.state.orderContainer}>
+                </DayAndTimeslotFilter>
+
 	            <OrderViewingDataTable
 	            	isEditingTable={true}
-	            	filterDay=""
-	            	filterTime=""
+	            	filterDay={this.state.filterDay}
+	            	filterTime={this.state.filterTime}
                     onEditOrderClicked={this.onEditOrderClicked}
 	            	orderContainer={this.state.orderContainer}>
 	            </OrderViewingDataTable>

@@ -103,7 +103,7 @@ export default class OrderEntryForm extends React.Component {
             ApiHelper.UpdateOrder(this.state).then(this.onOrderSubmitted).catch(this.onOrderFailed);
         }
         else {
-            ApiHelper.SubmitOrder(this.state, this.state.shouldOverrideTimeslotFull).then(this.onOrderSubmitted).catch(this.onOrderFailed);
+            ApiHelper.SubmitOrder(this.state, this.props.shouldOverrideTimeslotFull).then(this.onOrderSubmitted).catch(this.onOrderFailed);
             
         }
     }

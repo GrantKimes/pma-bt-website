@@ -44,26 +44,21 @@ export default class OrderViewingDataTable extends React.Component {
         table.rows.add(nextProps.orderContainer.toDataTablesData(this.props.isEditingTable));
         table.column('day:name').search(nextProps.orderContainer.dayToDTSearchFormat(nextProps.filterDay));
         table.column('time:name').search(nextProps.orderContainer.timeToDTSearchFormat(nextProps.filterTime));
+        if (this.props.isEditingTable) {
+            let onEditOrderClicked = this.props.onEditOrderClicked;
+            table.on('draw', function() {
+                $('.edit-button').on('click', function(event) {
+                    console.log("clicked edit for order " + event.target.dataset.orderId);
+                    onEditOrderClicked(Number(event.target.dataset.orderId));
+                });
+            });
+        }
         table.draw();
 
 
-        if (this.props.isEditingTable) {
-            let onEditOrderClicked = this.props.onEditOrderClicked;
-            $('.edit-button').on('click', function(event) {
-                console.log("clicked edit for order " + event.target.dataset.orderId);
-                onEditOrderClicked(Number(event.target.dataset.orderId));
-            });
-        }
 
         return true;
     }
-
-    // onEditOrderClicked(orderId) {
-    //     var order = this.props.orderContainer.getOrderById(orderId);
-    //     console.log(order);
-
-    //     this.setState({orderBeingEdited: order});
-    // }
 
     // Everythin inside the table element is not managed by React, just by DataTables
     render() {
