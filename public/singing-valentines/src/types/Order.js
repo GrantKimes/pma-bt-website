@@ -55,7 +55,6 @@ export default class Order {
 
 
     static viewTableOrdering = [
-        'id',
         'location',
         'recipient_name',
         'sender_name',
@@ -64,6 +63,7 @@ export default class Order {
         'day',
         'time',
         'comment',
+        'id',
     ]
 
     static orderFormFields = [

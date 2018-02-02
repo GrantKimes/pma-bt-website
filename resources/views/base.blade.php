@@ -72,9 +72,11 @@
 	      	<!--<li class="@yield('concerts_tab')"><a href="{{ route('concerts') }}">Concerts</a></li>-->
 	      	<li class="@yield('sv_tab')"><a href="{{ route('singingValentines') }}">Singing Valentines</a></li>
 			@if (Auth::check()) 
-	      	<li class="@yield('sv_order_tab')"><a href="{{ route('create_order') }}">Order</a></li>
-	      	<li class="@yield('sv_view_tab')"><a href="{{ route('view_orders') }}">View</a></li>			
-	      	<li class="@yield('sv_edit_tab')"><a href="{{ route('edit_orders') }}">Edit</a></li>			
+		      	<li class="@yield('sv_order_tab')"><a href="{{ route('create_order') }}">Order</a></li>
+		      	<li class="@yield('sv_view_tab')"><a href="{{ route('view_orders') }}">View</a></li>
+		      	@if (Auth::user()->name == "admin")
+			      	<li class="@yield('sv_edit_tab')"><a href="{{ route('edit_orders') }}">Edit</a></li>
+		      	@endif
 			@endif
 	      	<li class="@yield('botb_tab')"><a href="{{ route('botb') }}">Battle of the Bands</a></li>
 	      	<!--<li><a>Gallery</a></li>-->

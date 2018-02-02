@@ -34,7 +34,7 @@ export default class OrderViewingPage extends React.Component {
         			orderContainer={this.state.orderContainer}>
         		</DayAndTimeslotFilter>
 	            <OrderViewingDataTable
-	            	isEditing={false}
+	            	isEditingTable={false}
 	            	filterDay={this.state.filterDay}
 	            	filterTime={this.state.filterTime}
 	            	orderContainer={this.state.orderContainer}

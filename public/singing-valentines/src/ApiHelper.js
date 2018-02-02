@@ -21,8 +21,9 @@ export default class ApiHelper {
 		});
 	}
 
-	static SubmitOrder(orderFormState) {
+	static SubmitOrder(orderFormState, shouldOverrideTimeslotFull=false) {
 		var orderJson = Order.formStateToApiJson(orderFormState);
+		orderJson.should_override_timeslot_full = shouldOverrideTimeslotFull
 		console.log("Submitting order:");
 		console.log(orderJson);
 

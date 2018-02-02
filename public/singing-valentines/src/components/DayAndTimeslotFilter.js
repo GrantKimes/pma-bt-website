@@ -27,7 +27,7 @@ export default class DayAndTimeslotFilter extends React.Component {
         if (inputName === 'day') {
             stateUpdates.time =  "";
             let includeNumberOfOrders = true;
-            stateUpdates.timesDropdownValues = this.props.orderContainer.getTimesDropdownValues(inputValue, includeNumberOfOrders);
+            stateUpdates.timesDropdownValues = this.props.orderContainer.getTimesDropdownValues(inputValue, includeNumberOfOrders, true);
         }
         this.setState(stateUpdates, () => {
             this.props.onChange(this.state.day, this.state.time);
@@ -42,7 +42,7 @@ export default class DayAndTimeslotFilter extends React.Component {
         	<div className="container">
                 <div className="row">
                     <div className="col-md-8 col-md-offset-2">
-                        <div className="panel panel-info">
+                        <div className="panel panel-primary">
                             <div className="panel-heading">
                                 <h3 className="panel-title">View Orders</h3>
                             </div>
