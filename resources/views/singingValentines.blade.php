@@ -23,23 +23,18 @@
 				We offer a selection of six songs to choose from, arranged in four-part vocal harmony. We deliver candy and a red rose to the recipient with each song. We also will have a brother walking around wearing our Giant Heart Costume!
 			</p>
 			<div class="alert alert-info">
-			<p><strong>
-				Days: Friday Feb. 10, Monday Feb. 13, Tuesday Feb. 14
-			</strong></p>
+				<p><strong>
+					Days: Monday Feb. 12, Tuesday Feb. 13, Wednesday Feb. 14
+				</strong></p>
 			</div>
 			
-			<!--<p>
-				<img id="snapchat-icon" src="/images/icons/Snapchat-color.svg" height="24px">
-				This year we also have a snapchat filter! Look for it on those days during regular class hours in the Dooley, LC, and Cox buildings. 
-			</p>-->
-
 			<div class="media">
 			  <div class="media-left media-middle">
 		      <img id="snapchat-icon" class="media-object" src="images/icons/Snapchat-color.svg" alt="Snapchat">
 			  </div>
 			  <div class="media-body media-middle">
 			    <p>
-					This year we also have a snapchat filter! Look for it on those three days during regular class hours in the Dooley, LC, and Cox buildings. 
+					We also have a snapchat filter! Look for it on those three days during regular class hours in the Dooley, LC, and Cox buildings. 
 					</p>
 			  </div>
 			</div>
@@ -48,14 +43,13 @@
 			
 			<h3 class="title">Purchasing</h3>
 			<p>
-				Come see us at our table in the <strong>UC Breezeway</strong> to purchase one. We will be <strong>selling from Tuesday, Feb. 7 - Thursday, Feb. 9 between 9:00am - 5:00pm.</strong> One singing valentine costs $10, and we accept cash, Venmo, and Paypal. You'll need this information to place an order:
+				Come see us at our table in the <strong>UC Breezeway</strong> to purchase one. We will be <strong>selling from Wednesday, Feb. 7 - Friday, Feb. 9 between 9:00am - 5:00pm.</strong> One singing valentine costs $10, and we accept cash, Venmo, and Paypal. You'll need this information to place an order:
 			</p>
 			<ul>
 				<li>Your name and email</li>
 				<li>Name of person to deliver to</li>
 				<li>Time and place to find them during a regular class block <span class="text-muted"> - ex: Dooly 101, 9:30am-10:45am</span></li>
 				<li>Choice of song from our selection</li>
-				<li>Any comments or special requests</li>
 			</ul>
 			<p>
 				If you have any questions or requests, you can send an email to <a href="mailto:sv@betataupma.org">SV@BetaTauPMA.org</a> or message our <a href="https://www.facebook.com/betatau1937/" target="_blank">Facebook page</a>.
@@ -65,12 +59,12 @@
 		<div class="col-md-4">
 			<h3 class="title">Song Selection</h3>
 			<ul id="song-list">
-				<li><a href="https://www.youtube.com/watch?v=xwjwCFZpdns" target="_blank">Starving</a> <span class="badge">new</span><span class="text-muted"> - Hailee Steinfeld, Grey ft. Zedd</span></li>
-				<li><a href="https://www.youtube.com/watch?v=LjhCEhWiKXk" target="_blank">Just the Way You Are</a> <span class="badge">new</span><span class="text-muted"> - Bruno Mars</span></li>
-				<li><a href="https://www.youtube.com/watch?v=NsLyI1_R01M" target="_blank">Sweet Caroline</a> <span class="badge">new</span><span class="text-muted"> - Neil Diamond</span></li>
-				<li><a href="https://youtu.be/b1W5vwhLcsw?t=1m40s" target="_blank">Afternoon Delight</a><span class="text-muted"> - Starland Vocal Band</span></li>
-				<li><a href="https://youtu.be/IVvkjuEAwgU?t=3s" target="_blank">Isn't She Lovely</a><span class="text-muted"> - Stevie Wonder</span></li>
-				<li><a href="https://www.youtube.com/watch?v=EkHTsc9PU2A" target="_blank">I'm Yours</a><span class="text-muted"> - Jason Mraz</span></li>
+				<li>All My Lovin'<span class="text-muted"> - The Beatles</span></li>
+				<li>Just the Way You Are<span class="text-muted"> - Bruno Mars</span></li>
+				<li>Sweet Caroline<span class="text-muted"> - Neil Diamond</span></li>
+				<li>Afternoon Delight<span class="text-muted"> - Starland Vocal Band</span></li>
+				<li>Isn't She Lovely<span class="text-muted"> - Stevie Wonder</span></li>
+				<li>I'm Yours<span class="text-muted"> - Jason Mraz</span></li>
 			</ul>
 		</div>
 

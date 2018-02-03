@@ -78,7 +78,7 @@
 			      	<li class="@yield('sv_edit_tab')"><a href="{{ route('edit_orders') }}">Edit</a></li>
 		      	@endif
 			@endif
-	      	<li class="@yield('botb_tab')"><a href="{{ route('botb') }}">Battle of the Bands</a></li>
+	      	<!--<li class="@yield('botb_tab')"><a href="{{ route('botb') }}">Battle of the Bands</a></li>-->
 	      	<!--<li><a>Gallery</a></li>-->
 	      </ul>
 	    </div>
@@ -126,7 +126,6 @@
 		
 			<div class="col-md-6 center-text">
 				<p class="text-muted"><a href="mailto:brotherhood@betataupma.org">Brotherhood@BetaTauPMA.org</a></p>
-				<p><a href="/legacy/index.php">Legacy Site</a></p>
 
 				
 				@if (Auth::check()) 
@@ -134,7 +133,7 @@
 				  <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 				  <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
 				@else
-					<a href="{{ url('/login') }}">Login</a>
+					<a href="{{ url('/login') }}">SV System Login</a>
 				@endif
 				
 			</div>

@@ -9,13 +9,6 @@ require('datatables.net-responsive-bs');
 
 export default class OrderViewingDataTable extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            orderBeingEdited: null,
-        }
-    }
-
     componentDidMount = () => {
         $(this.refs.main).DataTable({
             dom: '<"#data-table-wrapper"iftlp>',
@@ -25,6 +18,19 @@ export default class OrderViewingDataTable extends React.Component {
             ordering: true,
             responsive: true,
         });
+
+        const table = $('#data-table-wrapper')
+            .find('table')
+            .DataTable();
+
+        if (this.props.isEditingTable) {
+            let onEditOrderClicked = this.props.onEditOrderClicked;
+            table.on('draw', function() {
+                $('.edit-button').on('click', function(event) {
+                    onEditOrderClicked(Number(event.target.dataset.orderId));
+                });
+            });
+        }
     }
 
     componentWillUnmount() {
@@ -36,26 +42,16 @@ export default class OrderViewingDataTable extends React.Component {
 
     shouldComponentUpdate = (nextProps, nextState) => {
         // Instead of modifying/rerendering the React component, have DataTables to handle update.
-        console.log(nextProps);
-        const table = $('#data-table-wrapper')
-            .find('table')
-            .DataTable();
-        table.clear();
-        table.rows.add(nextProps.orderContainer.toDataTablesData(this.props.isEditingTable));
-        table.column('day:name').search(nextProps.orderContainer.dayToDTSearchFormat(nextProps.filterDay));
-        table.column('time:name').search(nextProps.orderContainer.timeToDTSearchFormat(nextProps.filterTime));
-        if (this.props.isEditingTable) {
-            let onEditOrderClicked = this.props.onEditOrderClicked;
-            table.on('draw', function() {
-                $('.edit-button').on('click', function(event) {
-                    console.log("clicked edit for order " + event.target.dataset.orderId);
-                    onEditOrderClicked(Number(event.target.dataset.orderId));
-                });
-            });
+        if (nextProps.orderContainer !== this.props.orderContainer) {
+            const table = $('#data-table-wrapper')
+                .find('table')
+                .DataTable();
+            table.clear();
+            table.rows.add(nextProps.orderContainer.toDataTablesData(this.props.isEditingTable));
+            table.column('day:name').search(nextProps.orderContainer.dayToDTSearchFormat(nextProps.filterDay));
+            table.column('time:name').search(nextProps.orderContainer.timeToDTSearchFormat(nextProps.filterTime));
+            table.draw();
         }
-        table.draw();
-
-
 
         return true;
     }

@@ -16,7 +16,6 @@ export default class DayAndTimeslotFilter extends React.Component {
     }
 
     toOptionFields(dropdownValues) {
-        console.log(dropdownValues);
         return dropdownValues.map( (value, index) => <option key={index} value={value.value}>{value.readable}</option>);
     }
 

@@ -121,8 +121,7 @@ export default class OrderEntryForm extends React.Component {
             this.setState({successMessage: "The order was updated successfully! Refresh the page to see the changes."});
         }
         else {
-            this.setState({successMessage: "Your order was successfully submitted! Refresh the page to make a new order."});
-            
+            this.setState({successMessage: "Your order was successfully submitted! You will be sent a confirmation email. Refresh the page to make a new order."});
         }
     }
 

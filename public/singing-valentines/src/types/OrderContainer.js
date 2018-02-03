@@ -6,16 +6,17 @@ export default class OrderContainer {
 
     constructor() {
         this.orders = [];
+        this.ordersById = {};
         this.days = [];
         this.timeslots = [];
         this.songs = [];
     }
 
-    toDataTablesData(isEditing) {
+    toDataTablesData(isEditingTable) {
         var result = [];
         this.orders.forEach((order, index) => {
             var orderRow = order.getKeyValueWithData();
-            if (isEditing) {
+            if (isEditingTable) {
                 orderRow['edit'] = "<button class='btn btn-primary edit-button' data-order-id="+orderRow.id+">Edit</button>";
             }
             result.push(orderRow);
@@ -24,7 +25,7 @@ export default class OrderContainer {
     }
 
     getOrderById(orderId) {
-        return this.orders.find(order => order.id === orderId);
+        return this.ordersById[orderId];
     }
 
     getDaysDropdownValues() {
@@ -96,7 +97,6 @@ export default class OrderContainer {
                 idColumnIndex = index;
             }
         });
-        console.log("ORDERING: " + idColumnIndex);
         return [[idColumnIndex, 'desc']];
     }
 
@@ -116,10 +116,11 @@ export default class OrderContainer {
     }
 
     static parseFromJson(ordersJson) {
-        console.log(ordersJson);
         var newContainer = new OrderContainer();
         ordersJson.orders.forEach(orderJson => {
-            newContainer.orders.push(Order.parseFromJson(orderJson));
+            var order = Order.parseFromJson(orderJson);
+            newContainer.orders.push(order);
+            newContainer.ordersById[order.id] = order;
         });
         newContainer.days = ordersJson.days.map(value => value.day);
         newContainer.timeslots = ordersJson.timeslots;

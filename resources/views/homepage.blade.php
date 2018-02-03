@@ -79,7 +79,7 @@
         Valentine's Day is coming up, and Phi Mu Alpha will be going around UM's campus to deliver our annual Singing Valentines! 
       </p>
       <p class="lead">
-        They will be on sale <strong>Tuesday, Feb. 7 - Thursday, Feb. 9</strong>. Find more information <a href="{{ route('singingValentines') }}">here</a>.
+        They will be on sale <strong>Wednesday, Feb. 7 - Friday, Feb. 9</strong>. Find more information about <a href="{{ route('singingValentines') }}">how to order one</a>.
       </p>
     </div>
     <div class="col-md-5">
@@ -88,6 +88,7 @@
   </div>
 
 
+	<!--
   <hr>
 
   <div class="row featurette">
@@ -104,7 +105,10 @@
       <img src="images/home/80th-logo.png" class="featurette-image img-responsive center-block img-thumbnail" alt="80th anniversary logo">
     </div>
   </div>
+	-->
 
+
+	<!--
   <hr>
 
   <div class="row featurette">
@@ -136,6 +140,18 @@
       <img src="images/home/Rush-Spring-17.jpg" class="featurette-image img-responsive center-block img-thumbnail" alt="2017 rush">
     </div>
   </div>
+-->
+
+	<hr>
+
+  <div class="row featurette">
+    <div class="col-md-6" style="padding-bottom: 1em;">
+      <img src="images/home/Rush-Spring-17.jpg" class="featurette-image img-responsive center-block img-thumbnail" alt="2017 rush">
+    </div>
+    <div class="col-md-6">
+      <img src="images/home/80th-logo.png" class="featurette-image img-responsive center-block img-thumbnail" alt="80th anniversary logo">
+    </div>
+	</div>
 
 </div>
 

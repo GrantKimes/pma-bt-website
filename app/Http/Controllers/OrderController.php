@@ -93,7 +93,7 @@ class OrderController extends Controller
             . "</ul>"
             // . "<p>We have a Snapchat filter! Find out more on our <a href='http://betataupma.org/sv'>website</a>.</p>"
             . "<p>If you have any questions or would like to change your order, you can reply to this email (SV@BetaTauPMA.org).<p>"
-            . "<p>You can also reach out to us at our <a href='https://www.facebook.com/betatau1937/'>Facebook page</a>.</p>"
+            . "<p>You can also message us on Facebook at <a href='https://www.facebook.com/betatau1937/'>Phi Mu Alpha - University of Miami</a>.</p>"
             . "</body></html>";
 
 
