@@ -44,8 +44,6 @@ class OrderController extends Controller
 	    	return response()->json($order, 201);
     	}
 
-    	// TODO: send confirmation email here
-    	// TODO: return failure if timeslot is full. Needs way to override that if coming from edit page 
     }
 
     public function update(Request $request, Order $order) {
@@ -92,15 +90,15 @@ class OrderController extends Controller
             . "<li>Comment: <b>" . $order->comment . "</b></li>"
             . "</ul>"
             // . "<p>We have a Snapchat filter! Find out more on our <a href='http://betataupma.org/sv'>website</a>.</p>"
-            . "<p>If you have any questions or would like to change your order, you can reply to this email (SV@BetaTauPMA.org).<p>"
+            . "<p>If you have any questions or would like to change your order, you can reply-all to this email (UMiami.PMA@gmail.com).<p>"
             . "<p>You can also message us on Facebook at <a href='https://www.facebook.com/betatau1937/'>Phi Mu Alpha - University of Miami</a>.</p>"
             . "</body></html>";
 
 
 
-        $additionalHeaders[] = 'From: UMiami Phi Mu Alpha <SV@BetaTauPMA.org>';
+        $additionalHeaders[] = 'From: UMiami Phi Mu Alpha <UMiami.PMA@gmail.com>';
         //$additionalHeaders[] = 'To: '.$to;
-        $additionalHeaders[] = 'Return-Path: <SV@BetaTauPMA.org>';
+        $additionalHeaders[] = 'Return-Path: <UMiami.PMA@gmail.com>';
         $additionalHeaders[] = 'MIME-Version: 1.0';
         $additionalHeaders[] = 'Bcc: webmaster.betataupma@gmail.com';
         $additionalHeaders[] = 'Content-type: text/html; charset=iso-8859-1';

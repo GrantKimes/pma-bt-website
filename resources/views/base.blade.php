@@ -125,7 +125,7 @@
 		<div class="row">
 		
 			<div class="col-md-6 center-text">
-				<p class="text-muted"><a href="mailto:brotherhood@betataupma.org">Brotherhood@BetaTauPMA.org</a></p>
+				<p><strong>UMiami.PMA@gmail.com</strong></p>
 
 				
 				@if (Auth::check()) 
@@ -133,7 +133,7 @@
 				  <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 				  <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
 				@else
-					<a href="{{ url('/login') }}">SV System Login</a>
+					<a href="{{ url('/login') }}">Login</a>
 				@endif
 				
 			</div>

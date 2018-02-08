@@ -52,7 +52,7 @@
 				<li>Choice of song from our selection</li>
 			</ul>
 			<p>
-				If you have any questions or requests, you can send an email to <a href="mailto:sv@betataupma.org">SV@BetaTauPMA.org</a> or message our <a href="https://www.facebook.com/betatau1937/" target="_blank">Facebook page</a>.
+				If you have any questions or requests, you can send an email to <strong>UMiami.PMA@gmail.com</strong> or message our <a href="https://www.facebook.com/betatau1937/" target="_blank">Facebook page</a>.
 			</p>
 		</div>
 

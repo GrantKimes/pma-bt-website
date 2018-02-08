@@ -42,12 +42,15 @@ export default class OrderViewingDataTable extends React.Component {
 
     shouldComponentUpdate = (nextProps, nextState) => {
         // Instead of modifying/rerendering the React component, have DataTables to handle update.
+        const table = $('#data-table-wrapper')
+            .find('table')
+            .DataTable();
         if (nextProps.orderContainer !== this.props.orderContainer) {
-            const table = $('#data-table-wrapper')
-                .find('table')
-                .DataTable();
             table.clear();
-            table.rows.add(nextProps.orderContainer.toDataTablesData(this.props.isEditingTable));
+            table.rows.add(nextProps.orderContainer.toDataTablesData(nextProps.isEditingTable));
+            table.draw();
+        }
+        if (nextProps.filterDay !== this.props.filterDay || nextProps.filterTime !== this.props.filterTime) {
             table.column('day:name').search(nextProps.orderContainer.dayToDTSearchFormat(nextProps.filterDay));
             table.column('time:name').search(nextProps.orderContainer.timeToDTSearchFormat(nextProps.filterTime));
             table.draw();
