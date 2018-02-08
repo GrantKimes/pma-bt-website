@@ -90,7 +90,7 @@ class OrderController extends Controller
             . "<li>Comment: <b>" . $order->comment . "</b></li>"
             . "</ul>"
             // . "<p>We have a Snapchat filter! Find out more on our <a href='http://betataupma.org/sv'>website</a>.</p>"
-            . "<p>If you have any questions or would like to change your order, you can reply-all to this email (UMiami.PMA@gmail.com).<p>"
+            . "<p>If you have any questions or would like to change your order, you can reply to this email.<p>"
             . "<p>You can also message us on Facebook at <a href='https://www.facebook.com/betatau1937/'>Phi Mu Alpha - University of Miami</a>.</p>"
             . "</body></html>";
 

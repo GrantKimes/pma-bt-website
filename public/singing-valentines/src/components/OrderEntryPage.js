@@ -28,9 +28,9 @@ export default class OrderEntryPage extends React.Component {
                                 <h3 className=" panel-title">Place an Order for Singing Valentines</h3>
                             </div>
                             <div className="panel-body">
-                                <p>We find the recipient during a class period and serenade them with a song, and deliver a rose for them.</p> 
-                                <p>Each order costs $10, and can be paid with cash, Venmo (@JordanCraftPMA), or Paypal (SinfoniaBanking@gmail.com).</p> 
-                                <p>If you have any questions, you can send an email to <strong>SV@BetaTauPMA.org</strong>.</p>
+                                <p>We find the recipient during a class period, interrupt and serenade them with a song, and deliver a rose to them.</p> 
+                                <p>Each order costs $10, and can be paid with cash, Venmo (<strong>@JordanCraftPMA</strong>), or Paypal (SinfoniaBanking@gmail.com).</p> 
+                                <p>If you have any questions, you can send an email to <strong>UMiami.PMA@gmail.com</strong>.</p>
                             </div>
                         </div>
                     </div>
