@@ -79,7 +79,7 @@
         Valentine's Day is coming up, and Phi Mu Alpha will be going around UM's campus to deliver our annual Singing Valentines! 
       </p>
       <p class="lead">
-        They will be on sale <strong>Wednesday, Feb. 7 - Friday, Feb. 9</strong>. Find more information about <a href="{{ route('singingValentines') }}">how to order one</a>.
+        They will be on sale <strong>Thursday, Feb. 7, Friday, Feb. 8, and Tuesday, Feb. 12</strong>. Find more information about <a href="{{ route('singingValentines') }}">how to order one</a>.
       </p>
     </div>
     <div class="col-md-5">
