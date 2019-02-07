@@ -105,7 +105,7 @@ export default class Order {
         song: "-- Choose a song --",
         day: "-- Choose a day --",
         time: "-- Choose a time slot --",
-        comment: "Optional",
+        comment: "Optional (ex. preferred pronoun, special message, etc.)",
         id: "id"
     }
 

@@ -28,7 +28,7 @@ export default class OrderEntryForm extends React.Component {
             errorMessage: "",
             successMessage: "",
             submitButtonDisabled: false,
-        
+
         };
     }
 
@@ -70,7 +70,7 @@ export default class OrderEntryForm extends React.Component {
                 errorMessage: "",
                 successMessage: "",
                 submitButtonDisabled: false,
-            
+
             });
         }
     }
@@ -104,7 +104,7 @@ export default class OrderEntryForm extends React.Component {
         }
         else {
             ApiHelper.SubmitOrder(this.state, this.props.shouldOverrideTimeslotFull).then(this.onOrderSubmitted).catch(this.onOrderFailed);
-            
+
         }
     }
 
@@ -142,19 +142,19 @@ export default class OrderEntryForm extends React.Component {
                 <div className="col-md-12">
                     <form className="form-horizontal">
 
-                        <TextInput 
-                            formName="recipient_name" 
+                        <TextInput
+                            formName="recipient_name"
                             value={this.state.recipient_name}
                             onChange={this.inputChanged}>
                         </TextInput>
 
-                        <TextInput 
+                        <TextInput
                             formName="sender_name"
                             value={this.state.sender_name}
                             onChange={this.inputChanged}>
                         </TextInput>
 
-                        <TextInput 
+                        <TextInput
                             formName="sender_email"
                             value={this.state.sender_email}
                             onChange={this.inputChanged}>
@@ -174,11 +174,23 @@ export default class OrderEntryForm extends React.Component {
                             dropdownValues={this.state.timesDropdownValues}>
                         </DropdownInput>
 
-                        <TextInput 
+                        <TextInput
                             formName="location"
                             value={this.state.location}
                             onChange={this.inputChanged}>
                         </TextInput>
+
+                        {this.props.isEditingExistingOrder === false &&
+                            <div className="form-group">
+                                <label
+                                    htmlFor={"location-info"}
+                                    className="col-md-3 control-label">
+                                </label>
+                                <div className="col-md-6">
+                                    <span class="text-muted font-italic">We deliver only to the Coral Gables main campus, excluding the Flipse and Rainbow buildings.</span>
+                                </div>
+                            </div>
+                        }
 
                         <DropdownInput
                             formName="song"
@@ -187,7 +199,7 @@ export default class OrderEntryForm extends React.Component {
                             dropdownValues={this.state.songsDropdownValues}>
                         </DropdownInput>
 
-                        <TextAreaInput 
+                        <TextAreaInput
                             formName="comment"
                             value={this.state.comment}
                             onChange={this.inputChanged}>
@@ -197,15 +209,25 @@ export default class OrderEntryForm extends React.Component {
                             errorMessage={this.state.errorMessage}>
                         </ErrorIndicator>
 
+                        {this.props.isEditingExistingOrder === false &&
+                            <div className="col-md-6 col-md-offset-3">
+                                <div className="alert alert-warning">
+                                    We cannot provide a refund if your order is not delivered for any of these reasons:
+                                    examinations, professors refusal of our entry, absence from class,
+                                    last minute classroom change, or wrong classroom designation.
+                                </div>
+                            </div>
+                        }
+
                         <SubmittedIndicator
                             successMessage={this.state.successMessage}>
                         </SubmittedIndicator>
 
                         <div className="col-md-6 col-md-offset-3">
-                            <button 
+                            <button
                                 onClick={this.submitOrder}
                                 disabled={this.state.submitButtonDisabled}
-                                type="button" 
+                                type="button"
                                 className="btn btn-block btn-primary">
                                 <span>{this.props.isEditingExistingOrder ? "Update Order" : "Submit Order"}</span>
                             </button>
