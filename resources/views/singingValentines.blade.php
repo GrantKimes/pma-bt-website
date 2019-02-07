@@ -20,11 +20,11 @@
 				Each year on Valentine's Day, the brothers of Phi Mu Alpha go around campus delivering Singing Valentines. We send a group of brothers into a classroom at a scheduled time and serenade the person that the sender requested. It can be a romantic gesture to a special someone, or a joke to embarrass a friend. 
 			</p>
 			<p>
-				We offer a selection of six songs to choose from, arranged in four-part vocal harmony. We deliver candy and a red rose to the recipient with each song. We also will have a brother walking around wearing our Giant Heart Costume!
+				We offer a selection of five songs to choose from, arranged in four-part vocal harmony. We deliver candy and a red rose to the recipient with each song. We also will have a brother walking around wearing our Giant Heart Costume!
 			</p>
 			<div class="alert alert-info">
 				<p><strong>
-					Days: Monday Feb. 12, Tuesday Feb. 13, Wednesday Feb. 14
+					Days: Monday Feb. 11, Wednesday Feb. 13, Thursday Feb. 14
 				</strong></p>
 			</div>
 			
@@ -34,7 +34,7 @@
 			  </div>
 			  <div class="media-body media-middle">
 			    <p>
-					We also have a snapchat filter! Look for it on those three days during regular class hours in the Dooley, LC, and Cox buildings. 
+					We also have a snapchat filter! Look for it on Valentine's Day during regular class hours in the Dooley, LC, and Cox buildings. 
 					</p>
 			  </div>
 			</div>
@@ -43,7 +43,7 @@
 			
 			<h3 class="title">Purchasing</h3>
 			<p>
-				Come see us at our table in the <strong>UC Breezeway</strong> to purchase one. We will be <strong>selling from Wednesday, Feb. 7 - Friday, Feb. 9 between 9:00am - 5:00pm.</strong> One singing valentine costs $10, and we accept cash, Venmo, and Paypal. You'll need this information to place an order:
+				Come see us at our table in the <strong>UC Breezeway</strong> to purchase one. We will be <strong>selling on Thursday, Feb. 7, Friday, Feb. 8, and Tuesday, Feb. 12 between 9:00am - 5:00pm.</strong> One singing valentine costs $10, and we accept cash, checks, Venmo, and Paypal. You'll need this information to place an order:
 			</p>
 			<ul>
 				<li>Your name and email</li>
@@ -59,9 +59,8 @@
 		<div class="col-md-4">
 			<h3 class="title">Song Selection</h3>
 			<ul id="song-list">
-				<li>All My Lovin'<span class="text-muted"> - The Beatles</span></li>
+				<li>Perfect<span class="text-muted"> - Ed Sheeran</span></li>
 				<li>Just the Way You Are<span class="text-muted"> - Bruno Mars</span></li>
-				<li>Sweet Caroline<span class="text-muted"> - Neil Diamond</span></li>
 				<li>Afternoon Delight<span class="text-muted"> - Starland Vocal Band</span></li>
 				<li>Isn't She Lovely<span class="text-muted"> - Stevie Wonder</span></li>
 				<li>I'm Yours<span class="text-muted"> - Jason Mraz</span></li>
